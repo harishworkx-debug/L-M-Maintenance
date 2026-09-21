@@ -68,11 +68,17 @@ export default function Header() {
               </div>
 
               <div className="relative group">
-                <Link to="/service-areas" className="flex items-center gap-1 text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">
+                <button className="flex items-center gap-1 text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">
                   Service Areas <ChevronDown className="w-4 h-4" />
-                </Link>
+                </button>
                 <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 grid grid-cols-1 gap-0.5">
+                    <Link
+                      to="/service-areas"
+                      className="px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors font-semibold"
+                    >
+                      All Areas
+                    </Link>
                     {SERVICE_AREAS.filter(a => !a.main).map((a) => (
                       <Link
                         key={a.slug}

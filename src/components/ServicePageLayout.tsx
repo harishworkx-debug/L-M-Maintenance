@@ -84,8 +84,8 @@ export default function ServicePageLayout({
             </div>
             <aside>
               <div className="bg-blue-700 rounded-2xl p-6 text-white sticky top-24">
-                <h3 className="font-bold text-xl mb-2">Find Available Providers</h3>
-                <p className="text-blue-100 text-sm mb-5">Connect with independent local residential service professionals in Grand Junction today.</p>
+                <h3 className="font-bold text-xl mb-2">Schedule Service Today</h3>
+                <p className="text-blue-100 text-sm mb-5">Our local plumbing experts in Grand Junction are ready to help you.</p>
                 <a
                   href={`tel:${PHONE}`}
                   className="flex items-center justify-center gap-2 bg-white text-blue-800 font-bold px-5 py-3.5 rounded-xl hover:bg-blue-50 transition-colors mb-4 text-center"
@@ -94,7 +94,7 @@ export default function ServicePageLayout({
                   CALL NOW
                 </a>
                 <p className="text-center text-blue-200 font-semibold text-lg">{PHONE_DISPLAY}</p>
-                <p className="text-center text-blue-300 text-xs mt-2">Free service — no cost to homeowners</p>
+                <p className="text-center text-blue-300 text-xs mt-2">Fast, professional, and reliable</p>
               </div>
             </aside>
           </div>
@@ -133,7 +133,7 @@ export default function ServicePageLayout({
               <div className="rounded-2xl overflow-hidden shadow-lg h-80 bg-blue-50 flex items-center justify-center">
                 <div className="text-center p-8">
                   <Phone className="w-16 h-16 text-blue-300 mx-auto mb-4" />
-                  <p className="text-blue-600 font-semibold">Call to connect with local providers</p>
+                  <p className="text-blue-600 font-semibold">Call to schedule service</p>
                   <p className="text-blue-700 font-bold text-xl mt-2">{PHONE_DISPLAY}</p>
                 </div>
               </div>

@@ -1,137 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
   <url>
     <loc>https://www.gjrepairpros.com/</loc>
-    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.gjrepairpros.com/service-areas</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.gjrepairpros.com/service-areas/</loc>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.gjrepairpros.com/contact</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.gjrepairpros.com/about/</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.gjrepairpros.com/contact/</loc>
+    <priority>0.5</priority>
   </url>
 
   <!-- Grand Junction Service Pages -->
-  <url>
-    <loc>https://www.gjrepairpros.com/residential-home-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/plumbing-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/drain-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/water-heater-service-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/faucet-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/toilet-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/electrical-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/lighting-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/hvac-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-maintenance-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/drywall-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/carpentry-repair-grand-junction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.gjrepairpros.com/plumbing-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/drain-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/water-heater-service-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/faucet-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/toilet-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/pipe-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/garbage-disposal-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/sump-pump-service-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/sewer-line-repair-grand-junction/</loc><priority>0.8</priority></url>
+  <url><loc>https://www.gjrepairpros.com/shower-tub-repair-grand-junction/</loc><priority>0.8</priority></url>
 
-  <!-- Location Pages -->
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-fruita</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/maintenance-repair-fruita</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-palisade</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/maintenance-repair-palisade</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-clifton</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/maintenance-repair-clifton</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-orchard-mesa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/maintenance-repair-orchard-mesa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-loma</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-mack</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.gjrepairpros.com/home-repair-whitewater</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Plumber Location Pages -->
+  <url><loc>https://www.gjrepairpros.com/plumber-fruita/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-palisade/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-clifton/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-orchard-mesa/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-loma/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-mack/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.gjrepairpros.com/plumber-whitewater/</loc><priority>0.6</priority></url>
 </urlset>

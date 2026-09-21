@@ -6,9 +6,8 @@ export const CITY = 'Grand Junction';
 export const STATE = 'CO';
 export const STATE_FULL = 'Colorado';
 export const MAPS_URL = 'https://maps.app.goo.gl/JxqJnsmtYmRJhgz97';
-
-export const DISCLAIMER =
-  'Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.';
+export const RATING = '4.8';
+export const REVIEW_COUNT = '42';
 
 export const SERVICE_AREAS = [
   { name: 'Grand Junction', slug: 'grand-junction', main: true },
@@ -23,20 +22,14 @@ export const SERVICE_AREAS = [
 
 export const MAIN_SERVICES = [
   {
-    slug: 'residential-home-repair',
-    name: 'Residential Home Repair',
-    icon: 'Home',
-    short: 'General home repairs handled quickly and professionally.',
-  },
-  {
     slug: 'plumbing-repair',
     name: 'Plumbing Repair',
     icon: 'Droplets',
-    short: 'Leaks, pipe issues, and plumbing fixes for your home.',
+    short: 'Leaks, pipe issues, and plumbing fixes for your home or business.',
   },
   {
     slug: 'drain-repair',
-    name: 'Drain Repair & Cleaning',
+    name: 'Drain Cleaning & Repair',
     icon: 'Waves',
     short: 'Clogged or slow drains cleared fast.',
   },
@@ -44,7 +37,7 @@ export const MAIN_SERVICES = [
     slug: 'water-heater-service',
     name: 'Water Heater Service',
     icon: 'Flame',
-    short: 'Water heater repair and replacement for your home.',
+    short: 'Water heater repair, maintenance, and replacement.',
   },
   {
     slug: 'faucet-repair',
@@ -59,39 +52,33 @@ export const MAIN_SERVICES = [
     short: 'Running, leaking or broken toilets repaired promptly.',
   },
   {
-    slug: 'electrical-repair',
-    name: 'Electrical Repair',
-    icon: 'Zap',
-    short: 'Residential electrical troubleshooting and repair.',
+    slug: 'pipe-repair',
+    name: 'Pipe Repair & Replacement',
+    icon: 'Droplets',
+    short: 'Fixing burst, frozen, or leaking pipes to prevent damage.',
   },
   {
-    slug: 'lighting-repair',
-    name: 'Lighting Repair',
-    icon: 'Lightbulb',
-    short: 'Interior and exterior lighting repair and installation.',
-  },
-  {
-    slug: 'hvac-repair',
-    name: 'HVAC Repair',
-    icon: 'Wind',
-    short: 'Heating and cooling system repair for your home.',
-  },
-  {
-    slug: 'home-maintenance',
-    name: 'Home Maintenance',
+    slug: 'garbage-disposal-repair',
+    name: 'Garbage Disposal Repair',
     icon: 'Settings',
-    short: 'Seasonal maintenance to keep your home in top shape.',
+    short: 'Jammed, leaking, or broken garbage disposals repaired quickly.',
   },
   {
-    slug: 'drywall-repair',
-    name: 'Drywall Repair',
+    slug: 'sump-pump-service',
+    name: 'Sump Pump Service',
+    icon: 'Waves',
+    short: 'Sump pump repair and installation to keep your basement dry.',
+  },
+  {
+    slug: 'sewer-line-repair',
+    name: 'Sewer Line Repair',
     icon: 'Square',
-    short: 'Holes, cracks, and drywall damage repaired seamlessly.',
+    short: 'Sewer line inspection, cleaning, and replacement.',
   },
   {
-    slug: 'carpentry-repair',
-    name: 'Carpentry Repair',
-    icon: 'Hammer',
-    short: 'Doors, windows, trim, and wood repairs for your home.',
-  },
+    slug: 'shower-tub-repair',
+    name: 'Shower & Tub Repair',
+    icon: 'Droplet',
+    short: 'Fixing leaks, clogs, and issues with your showers and tubs.',
+  }
 ];

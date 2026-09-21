@@ -8,8 +8,8 @@ interface CallCTAProps {
 }
 
 export default function CallCTA({
-  heading = 'Request a Service Connection Today',
-  subtext = 'Available providers are standing by. Find a local independent residential service professional now.',
+  heading = 'Schedule Your Plumbing Service Today',
+  subtext = 'Our expert plumbers are ready to help with all your residential and commercial needs.',
   dark = false,
 }: CallCTAProps) {
   return (
@@ -24,7 +24,7 @@ export default function CallCTA({
           <Phone className="w-6 h-6" />
           CALL NOW — {PHONE_DISPLAY}
         </a>
-        <p className="text-blue-200 text-sm mt-4">Free service to connect with independent local providers</p>
+        <p className="text-blue-200 text-sm mt-4">Fast, reliable, and professional service</p>
       </div>
     </section>
   );

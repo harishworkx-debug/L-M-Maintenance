@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, MapPin } from 'lucide-react';
-import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, DISCLAIMER, MAIN_SERVICES, SERVICE_AREAS } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, MAIN_SERVICES, SERVICE_AREAS } from '@/lib/constants';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,11 +19,11 @@ export default function Footer() {
               </div>
               <div className="leading-tight">
                 <span className="block text-white font-bold text-sm">L&M Maintenance</span>
-                <span className="block text-blue-400 text-xs">& Repair — Grand Junction</span>
+                <span className="block text-blue-400 text-xs">and Repair — Plumber</span>
               </div>
             </div>
             <p className="text-sm text-gray-400 mb-5 leading-relaxed">
-              Connecting Grand Junction homeowners with qualified independent residential service providers for repairs and maintenance.
+              Your trusted local experts for all plumbing, drain cleaning, and water heater services in Grand Junction and Mesa County.
             </p>
             <a
               href={`tel:${PHONE}`}
@@ -36,9 +36,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Grand Junction Services</h3>
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Our Services</h3>
             <ul className="space-y-2">
-              {MAIN_SERVICES.slice(0, 7).map((s) => (
+              {MAIN_SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
                     to={`/${s.slug}-grand-junction`}
@@ -51,21 +51,21 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Empty Space for layout or Quick Links */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">More Services</h3>
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {MAIN_SERVICES.slice(7).map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    to={`/${s.slug}-grand-junction`}
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {s.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Link to="/service-areas" className="text-sm text-gray-400 hover:text-blue-400 transition-colors font-medium">All Service Areas →</Link>
+              <li>
+                <Link to="/" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">Home</Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">Contact Us</Link>
+              </li>
+              <li>
+                <Link to="/service-areas" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">All Service Areas</Link>
               </li>
             </ul>
           </div>
@@ -74,34 +74,31 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Service Areas</h3>
             <ul className="space-y-2">
-              {SERVICE_AREAS.filter((a) => !a.main).map((area) => (
+              {SERVICE_AREAS.filter((a) => !a.main).slice(0, 5).map((area) => (
                 <li key={area.slug}>
                   <Link
-                    to={`/home-repair-${area.slug}`}
+                    to={`/plumber-${area.slug}`}
                     className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {area.name}, CO
                   </Link>
                 </li>
               ))}
+              <li>
+                 <Link to="/service-areas" className="text-sm text-gray-400 hover:text-blue-400 transition-colors font-medium">View All Areas →</Link>
+              </li>
             </ul>
             <div className="mt-4 flex items-start gap-2 text-sm text-gray-400">
               <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-500" />
-              <span>Grand Junction, CO &amp; Surrounding Mesa County Areas</span>
+              <span>Grand Junction &amp; Surrounding Mesa County Areas</span>
             </div>
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div className="border-t border-gray-700 pt-6 mb-6">
-          <p className="text-xs text-gray-500 leading-relaxed">{DISCLAIMER}</p>
-        </div>
-
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500 border-t border-gray-700 pt-6">
           <p>&copy; {year} {BUSINESS_NAME}. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <Link to="/sitemap" className="hover:text-gray-300 transition-colors">Sitemap</Link>
             <Link to="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
           </div>
         </div>

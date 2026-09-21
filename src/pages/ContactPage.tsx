@@ -93,14 +93,14 @@ export default function ContactPage() {
             <div>
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-80 sm:h-96">
                 <iframe
-                  src="https://maps.google.com/maps?q=Grand+Junction,+CO&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d794527.9440244504!2d-108.8796112726113!3d38.93255289425556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4c9e508e99e27add%3A0x49059b2429b0fe40!2sL%26M%20Maintenance%20and%20Repair!5e0!3m2!1sen!2sin!4v1790005213948!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Grand Junction, Colorado Service Area Map"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="L&M Maintenance and Repair Map"
                 />
               </div>
               <p className="text-center text-gray-500 text-sm mt-3">

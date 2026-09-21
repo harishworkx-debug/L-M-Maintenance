@@ -2,15 +2,13 @@ import { Link } from 'react-router-dom';
 import { Phone, MapPin, CheckCircle, ChevronRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
-import { PHONE, PHONE_DISPLAY, MAIN_SERVICES, SERVICE_AREAS } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, MAIN_SERVICES, SERVICE_AREAS, BUSINESS_NAME } from '@/lib/constants';
 
 interface LocationPageProps {
   city: string;
   slug: string;
   county?: string;
   description?: string;
-  extraContent?: string;
-  pageType: 'home-repair' | 'maintenance-repair';
 }
 
 export default function LocationPage({
@@ -18,32 +16,25 @@ export default function LocationPage({
   slug,
   county = 'Mesa County',
   description,
-  extraContent,
-  pageType,
 }: LocationPageProps) {
-  const isHomeRepair = pageType === 'home-repair';
-  const canonical = `/${pageType}-${slug}`;
-  const title = isHomeRepair
-    ? `Home Repair ${city} CO | Residential Service Connection`
-    : `Home Maintenance & Repair ${city} CO | Residential Service`;
+  const canonical = `/plumber-${slug}`;
+  const title = `Plumber in ${city} CO | ${BUSINESS_NAME}`;
   const metaDescription =
     description ||
-    `Find available independent residential home ${isHomeRepair ? 'repair' : 'maintenance and repair'} providers in ${city}, CO. Connect with local service professionals for your home. Call (970) 549-6785.`;
+    `Expert plumbing services in ${city}, CO. Call ${BUSINESS_NAME} at ${PHONE_DISPLAY} for fast, reliable plumbing, drain, and water heater repair.`;
 
-  const h1 = isHomeRepair
-    ? `Residential Home Repair in ${city}, CO`
-    : `Home Maintenance & Repair in ${city}, CO`;
+  const h1 = `Expert Plumber in ${city}, CO`;
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
+    '@type': 'PlumbingService',
     name: h1,
     description: metaDescription,
     areaServed: { '@type': 'City', name: `${city}, CO` },
-    provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+    provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
   };
 
-  const nearby = SERVICE_AREAS.filter((a) => a.slug !== slug).slice(0, 4);
+  const nearby = SERVICE_AREAS.filter((a) => a.slug !== slug && !a.main).slice(0, 4);
 
   return (
     <>
@@ -78,23 +69,20 @@ export default function LocationPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                {isHomeRepair
-                  ? `Connect with available independent local providers for residential home repair in ${city}, CO. Our free service helps ${city} homeowners find qualified local professionals for all types of home repairs — from plumbing and electrical to general handyman work.`
-                  : `Find available independent local providers for home maintenance and repair in ${city}, CO. Our free connection service helps ${city} homeowners keep their properties in excellent condition year-round with the help of qualified local professionals.`}
+                Looking for a reliable plumber in {city}, CO? {BUSINESS_NAME} is your local expert for all plumbing, drain cleaning, and water heater repairs. We provide fast, professional service to ensure your home or business plumbing systems are running smoothly.
               </p>
 
               <div className="text-gray-600 space-y-4 leading-relaxed">
                 <p>
-                  {city} is served by our network of independent local residential service providers, all based in and around the Grand Junction and Mesa County area. Whether you need a specific repair handled or want ongoing maintenance support for your {city} home, local providers are available to help.
+                  As a locally owned and operated business, we understand the unique plumbing needs of {city} residents. Whether you're dealing with a leaky faucet, a stubborn clog, or need a complete water heater replacement, our experienced technicians are ready to help.
                 </p>
-                {extraContent && <p>{extraContent}</p>}
                 <p>
-                  For major service needs, homeowners in {city} also have access to the full range of specialized residential repair services available through our Grand Junction service connection, including plumbing, electrical, HVAC, drywall, carpentry, and more.
+                  Don't let plumbing issues disrupt your day. We pride ourselves on prompt arrivals, transparent pricing, and getting the job done right the first time.
                 </p>
               </div>
 
               <h2 className="text-xl font-bold text-gray-900 pt-2">
-                {isHomeRepair ? `Home Repair Services Available in ${city}` : `Residential Maintenance Services in ${city}`}
+                Our Plumbing Services in {city}
               </h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {MAIN_SERVICES.map((s) => (
@@ -105,20 +93,20 @@ export default function LocationPage({
                 ))}
               </ul>
 
-              <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+              <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-2">
-                  About Home Repair Services in {city}, CO
+                  Why Choose Us for Your {city} Home?
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  {city} residents have access to the same qualified independent local service providers that serve Grand Junction and the broader Mesa County area. Our free connection service covers the entire region — call to connect with available providers for your residential repair or maintenance needs.
+                  We are committed to providing top-tier plumbing services across {county}. Our team is fully equipped to handle everything from minor repairs to major installations, ensuring your home remains comfortable and safe. Call us today to schedule your service.
                 </p>
               </div>
             </div>
 
             <aside>
               <div className="bg-blue-700 rounded-2xl p-6 text-white sticky top-24">
-                <h3 className="font-bold text-xl mb-2">Connect in {city}</h3>
-                <p className="text-blue-100 text-sm mb-5">Find available independent residential service providers in {city}, CO today.</p>
+                <h3 className="font-bold text-xl mb-2">Need a Plumber in {city}?</h3>
+                <p className="text-blue-100 text-sm mb-5">Call our local experts for fast, reliable service.</p>
                 <a
                   href={`tel:${PHONE}`}
                   className="flex items-center justify-center gap-2 bg-white text-blue-800 font-bold px-5 py-3.5 rounded-xl hover:bg-blue-50 transition-colors mb-4 text-center"
@@ -127,10 +115,9 @@ export default function LocationPage({
                   CALL NOW
                 </a>
                 <p className="text-center text-blue-200 font-semibold text-lg">{PHONE_DISPLAY}</p>
-                <p className="text-center text-blue-300 text-xs mt-2">Free service — no cost to homeowners</p>
 
                 <div className="mt-6 pt-6 border-t border-blue-600">
-                  <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-3">Grand Junction Services</p>
+                  <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-3">Our Services</p>
                   <div className="space-y-1">
                     {MAIN_SERVICES.slice(0, 5).map((s) => (
                       <Link
@@ -157,7 +144,7 @@ export default function LocationPage({
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Nearby Service Areas</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Link
-              to="/residential-home-repair-grand-junction"
+              to="/plumbing-repair-grand-junction"
               className="group bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md border border-gray-100 hover:border-blue-200 transition-all"
             >
               <MapPin className="w-5 h-5 text-blue-600 mx-auto mb-2" />
@@ -167,7 +154,7 @@ export default function LocationPage({
             {nearby.map((area) => (
               <Link
                 key={area.slug}
-                to={`/home-repair-${area.slug}`}
+                to={`/plumber-${area.slug}`}
                 className="group bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md border border-gray-100 hover:border-blue-200 transition-all"
               >
                 <MapPin className="w-5 h-5 text-blue-600 mx-auto mb-2" />

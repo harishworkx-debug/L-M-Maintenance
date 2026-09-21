@@ -1,24 +1,23 @@
 import { Link } from 'react-router-dom';
 import {
-  Phone, MapPin, CheckCircle, Star, Shield, Clock, Home,
-  Droplets, Waves, Flame, Droplet, Wrench, Zap, Lightbulb,
-  Wind, Settings, Square, Hammer, ChevronRight, ArrowRight
+  Phone, MapPin, CheckCircle, Shield, Clock, Home,
+  Droplets, Waves, Flame, Droplet, Wrench, ChevronRight, ArrowRight, Star, AlertTriangle
 } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
 import {
-  PHONE, PHONE_DISPLAY, BUSINESS_NAME, CITY, STATE, SERVICE_AREAS, MAIN_SERVICES
+  PHONE, PHONE_DISPLAY, BUSINESS_NAME, SERVICE_AREAS, MAIN_SERVICES
 } from '@/lib/constants';
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Home, Droplets, Waves, Flame, Droplet, Wrench, Zap, Lightbulb, Wind, Settings, Square, Hammer
+  Home, Droplets, Waves, Flame, Droplet, Wrench
 };
 
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'PlumbingService',
   name: BUSINESS_NAME,
-  description: 'Residential home repair and maintenance service connection in Grand Junction, CO.',
+  description: 'Expert residential and commercial plumbing services in Grand Junction, CO.',
   telephone: PHONE,
   address: {
     '@type': 'PostalAddress',
@@ -28,33 +27,29 @@ const schema = {
   },
   url: 'https://www.gjrepairpros.com',
   areaServed: SERVICE_AREAS.map((a) => ({ '@type': 'City', name: `${a.name}, CO` })),
-  serviceType: 'Residential Home Repair and Maintenance',
+  serviceType: 'Plumbing and Drain Service',
 };
 
 const FAQS = [
   {
-    q: 'What types of home repairs can I find service providers for?',
-    a: 'You can connect with independent local providers for a wide range of residential repairs including plumbing, electrical, HVAC, drywall, carpentry, water heater service, drain cleaning, lighting, and general home maintenance.',
+    q: 'What types of plumbing services do you offer?',
+    a: 'We handle a wide range of plumbing needs including leak repairs, drain cleaning, water heater installation and maintenance, faucet repair, and toilet repair for both residential and commercial properties.',
   },
   {
     q: 'Do you serve areas outside Grand Junction?',
-    a: 'Yes, our service connection covers the greater Mesa County area including Fruita, Palisade, Clifton, Orchard Mesa, Loma, Mack, and Whitewater.',
+    a: 'Yes, we provide expert plumbing services throughout the greater Mesa County area, including Fruita, Palisade, Clifton, Orchard Mesa, Loma, Mack, and Whitewater.',
   },
   {
-    q: 'How quickly can I connect with a service provider?',
-    a: 'Simply call the number above and you\'ll be connected with available independent local providers who can help with your residential repair needs.',
+    q: 'How quickly can you respond to a plumbing emergency?',
+    a: 'We prioritize urgent plumbing issues like burst pipes or severe leaks. Call our main line, and we will dispatch a technician to your location as quickly as possible.',
   },
   {
-    q: 'Are the service providers licensed and insured?',
-    a: 'All providers in our network are independent contractors. We strongly encourage homeowners to verify that any hired contractor holds the required license and insurance before work begins.',
+    q: 'Are your plumbers licensed and insured?',
+    a: 'Absolutely. Our team is fully licensed, insured, and highly trained to ensure all plumbing work meets local codes and the highest quality standards.',
   },
   {
-    q: 'Is this a free service?',
-    a: 'Yes, connecting with local providers through this site is completely free for homeowners. There is no charge to request a service connection.',
-  },
-  {
-    q: 'Do you handle commercial or rental property repairs?',
-    a: 'No. Our service is focused exclusively on residential homes. We connect homeowners in Grand Junction and surrounding areas with independent providers for personal residential repair needs.',
+    q: 'Do you offer upfront pricing?',
+    a: 'Yes, we believe in transparent pricing. We evaluate the issue and provide a clear estimate before any work begins, so there are no surprises.',
   },
 ];
 
@@ -62,8 +57,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title={`Grand Junction Home Repair & Maintenance | ${BUSINESS_NAME}`}
-        description="Connect with independent local residential home repair providers in Grand Junction, CO. Plumbing, electrical, HVAC, and more. Call (970) 549-6785."
+        title={`Plumber in Grand Junction, CO | ${BUSINESS_NAME}`}
+        description={`Expert plumbing services in Grand Junction by ${BUSINESS_NAME}. Leaks, drains, water heaters & more. Call (970) 549-6785.`}
         canonical="/"
         schema={schema}
       />
@@ -86,12 +81,12 @@ export default function HomePage() {
               Serving Grand Junction &amp; Mesa County, CO
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Grand Junction<br />
-              <span className="text-blue-400">Residential Home</span><br />
-              Repair &amp; Maintenance
+              Grand Junction's<br />
+              <span className="text-blue-400">Trusted Plumbing</span><br />
+              Professionals
             </h1>
             <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-              Connect with qualified independent local service providers for residential repairs and maintenance throughout Grand Junction and the surrounding Mesa County communities.
+              From leaky faucets to full water heater replacements, {BUSINESS_NAME} delivers fast, reliable, and expert plumbing services for your home or business.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -106,12 +101,12 @@ export default function HomePage() {
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-8 py-4 rounded-xl border border-white/20 transition-all"
               >
-                Request a Connection
+                Request Service
               </Link>
             </div>
 
             <div className="flex flex-wrap gap-6 text-sm text-blue-200">
-              {['Residential Only', 'All of Mesa County', 'Free Connection Service', 'Local Providers'].map((item) => (
+              {['Licensed & Insured', 'Upfront Pricing', 'Local Experts', 'Fast Response'].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-blue-400" />
                   {item}
@@ -127,10 +122,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Shield, label: 'Verified Independent Providers', sub: 'Local professionals' },
-              { icon: Clock, label: 'Fast Response Connection', sub: 'Call to connect' },
-              { icon: MapPin, label: 'Mesa County Coverage', sub: 'GJ & surrounding areas' },
-              { icon: Home, label: 'Residential Only', sub: 'Homes & condos' },
+              { icon: Shield, label: 'Licensed & Insured', sub: 'Guaranteed quality' },
+              { icon: Clock, label: 'Fast Response', sub: 'Ready when you need us' },
+              { icon: MapPin, label: 'Local Experts', sub: 'Serving Mesa County' },
+              { icon: Droplets, label: 'Full Service', sub: 'Plumbing & drains' },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -146,20 +141,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              The {BUSINESS_NAME} Difference
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              We go above and beyond to ensure you get the best plumbing service in Mesa County.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: 'Experienced Plumbers', desc: 'Our technicians undergo rigorous training and have years of hands-on experience solving complex plumbing issues.', icon: Wrench },
+              { title: 'Upfront Pricing', desc: 'No hidden fees or surprises. We provide honest, straightforward pricing before we start any work.', icon: CheckCircle },
+              { title: 'Local & Reliable', desc: 'As a locally owned business, we treat our Grand Junction neighbors with the respect and urgency they deserve.', icon: Home }
+            ].map((feature) => (
+              <div key={feature.title} className="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <feature.icon className="w-8 h-8 text-blue-700" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Residential Services</span>
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Services</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Home Repair Services in Grand Junction
+              Expert Plumbing Services
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Find available independent local providers for all your residential home repair and maintenance needs throughout Grand Junction, CO.
+              We offer comprehensive plumbing solutions to keep your water flowing and your property safe.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {MAIN_SERVICES.map((service) => {
               const Icon = ICON_MAP[service.icon];
               return (
@@ -174,7 +199,7 @@ export default function HomePage() {
                   <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">{service.name}</h3>
                   <p className="text-sm text-gray-500 mb-3 leading-relaxed">{service.short}</p>
                   <div className="flex items-center gap-1 text-blue-600 text-sm font-medium">
-                    Find Providers <ChevronRight className="w-4 h-4" />
+                    View Service <ChevronRight className="w-4 h-4" />
                   </div>
                 </Link>
               );
@@ -188,24 +213,24 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">About Our Service</span>
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">About Us</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Connecting Grand Junction Homeowners with Local Providers
+                Your Local Grand Junction Plumbers
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Finding a reliable home repair provider in Grand Junction shouldn't be stressful. Our free service helps Mesa County homeowners quickly connect with available independent local residential service professionals.
+                At {BUSINESS_NAME}, we know that plumbing issues can bring your day to a halt. That's why our dedicated team of professionals is committed to providing fast, effective, and lasting solutions.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Whether you're dealing with a dripping faucet, a struggling water heater, electrical issues, or routine seasonal maintenance, we make it easy to find qualified providers in Grand Junction, Fruita, Palisade, and surrounding communities.
+                We take pride in our workmanship and our reputation in the Grand Junction community. Whether it's a routine inspection, complex pipe repairs, or emergency water heater replacement, you can count on us to deliver exceptional service every time.
               </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  'Residential home repairs of all types',
-                  'Connect with local independent providers',
-                  'Grand Junction & all of Mesa County',
-                  'Free service — no cost to homeowners',
-                  'Plumbing, electrical, HVAC & more',
+                  'Residential & commercial plumbing',
+                  'Honest, upfront pricing',
+                  'Locally owned and operated',
+                  'Highly trained technicians',
+                  'Commitment to customer satisfaction',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
@@ -226,13 +251,42 @@ export default function HomePage() {
             <div className="relative">
               <img
                 src="https://images.pexels.com/photos/4981803/pexels-photo-4981803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                alt="Home repair professional at work in Grand Junction"
+                alt="Plumbing professional at work in Grand Junction"
                 className="rounded-2xl shadow-2xl w-full object-cover h-[500px]"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-700 text-white rounded-2xl p-5 shadow-xl">
                 <p className="text-3xl font-extrabold">Mesa County</p>
-                <p className="text-blue-200 text-sm mt-1">Local Service Connection</p>
+                <p className="text-blue-200 text-sm mt-1">Local Plumbing Experts</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Emergency Callout */}
+      <section className="bg-blue-900 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-blue-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between border border-blue-700/50 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 opacity-10">
+              <AlertTriangle className="w-64 h-64 -mt-10 -mr-10 text-white" />
+            </div>
+            <div className="relative z-10 md:w-2/3 mb-8 md:mb-0 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 border border-red-500/30 text-sm font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
+                <AlertTriangle className="w-4 h-4" /> Emergency Service
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Have a Plumbing Emergency?</h2>
+              <p className="text-blue-100 text-lg leading-relaxed max-w-xl">
+                Burst pipes, severe leaks, and major clogs don't wait for regular business hours. Call us immediately for fast, responsive emergency plumbing repairs in Grand Junction.
+              </p>
+            </div>
+            <div className="relative z-10">
+              <a
+                href={`tel:${PHONE}`}
+                className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-500 text-white font-bold text-xl px-8 py-5 rounded-xl shadow-lg transition-all"
+              >
+                <Phone className="w-6 h-6" />
+                CALL NOW
+              </a>
             </div>
           </div>
         </div>
@@ -246,10 +300,10 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Coverage</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Home Repair Service Areas in Mesa County
+              Plumbing Service Areas in Mesa County
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We connect homeowners throughout Grand Junction and the surrounding Mesa County communities with qualified independent residential service providers.
+              We provide professional plumbing services throughout Grand Junction and the surrounding Mesa County communities.
             </p>
           </div>
 
@@ -257,7 +311,7 @@ export default function HomePage() {
             {SERVICE_AREAS.map((area) => (
               <Link
                 key={area.slug}
-                to={area.main ? `/residential-home-repair-grand-junction` : `/home-repair-${area.slug}`}
+                to={area.main ? `/plumbing-repair-grand-junction` : `/plumber-${area.slug}`}
                 className="group bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md border border-gray-100 hover:border-blue-200 transition-all"
               >
                 <MapPin className="w-5 h-5 text-blue-600 mx-auto mb-2" />
@@ -277,6 +331,42 @@ export default function HomePage() {
             >
               View All Service Areas <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              What Our Customers Say
+            </h2>
+            <div className="flex items-center justify-center gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+              ))}
+            </div>
+            <p className="text-gray-600 font-medium">Rated 4.8/5 based on 42 reviews</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: 'Sarah M.', loc: 'Grand Junction, CO', text: 'Incredibly fast response when our water heater broke. The technician was polite, explained the costs upfront, and had a new unit installed the same day. Highly recommended!' },
+              { name: 'David L.', loc: 'Fruita, CO', text: 'L&M Maintenance fixed a stubborn leak under our kitchen sink that two other companies couldn\'t figure out. Honest pricing and fantastic workmanship.' },
+              { name: 'Jennifer K.', loc: 'Palisade, CO', text: 'I called them for a clogged main sewer line. They were at my house within an hour and had the problem resolved quickly. Will definitely use them again.' }
+            ].map((review, i) => (
+              <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div className="flex text-yellow-400 mb-4">
+                  {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-gray-600 italic mb-6 leading-relaxed">"{review.text}"</p>
+                <div>
+                  <p className="font-bold text-gray-900">{review.name}</p>
+                  <p className="text-sm text-gray-500">{review.loc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -318,20 +408,20 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-80 lg:h-auto min-h-[350px]">
               <iframe
-                src="https://maps.google.com/maps?q=Grand+Junction,+CO&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d794527.9440244504!2d-108.8796112726113!3d38.93255289425556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4c9e508e99e27add%3A0x49059b2429b0fe40!2sL%26M%20Maintenance%20and%20Repair!5e0!3m2!1sen!2sin!4v1790005213948!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '350px' }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Grand Junction Colorado Map"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="L&M Maintenance and Repair Map"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Connect with a Local Provider</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Schedule Your Service</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our free service connects Grand Junction homeowners with available independent local residential service providers. Call the number below to get started.
+                Need a plumber fast? Call us today to schedule your service or request an estimate. We are ready to help with any plumbing issue in Grand Junction and surrounding areas.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
@@ -361,26 +451,6 @@ export default function HomePage() {
                 CALL NOW — {PHONE_DISPLAY}
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEO Content Block */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Residential Home Repair in Grand Junction, Colorado
-          </h2>
-          <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-            <p>
-              Grand Junction is the largest city in Mesa County and serves as the hub of the Western Slope of Colorado. With a mix of older homes, established neighborhoods, and newer residential developments, homeowners throughout the area regularly need reliable residential repair and maintenance services.
-            </p>
-            <p>
-              From the established neighborhoods near downtown Grand Junction to the homes in surrounding communities like Fruita, Palisade, and Clifton, our service connection helps homeowners find independent local providers for a wide range of residential repairs. Whether you need a leaky faucet fixed, a water heater serviced, electrical troubleshooting, HVAC maintenance, or general home upkeep, local providers are available throughout Mesa County.
-            </p>
-            <p>
-              Grand Junction's climate — with hot, dry summers and cold winters — means homes require regular attention to plumbing, HVAC systems, and weatherproofing. Calling a local independent provider through our free connection service is the fastest way to get qualified help for your residential home.
-            </p>
           </div>
         </div>
       </section>

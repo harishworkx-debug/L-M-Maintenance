@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronDown } from 'lucide-react';
-import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, MAIN_SERVICES } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, MAIN_SERVICES, SERVICE_AREAS } from '@/lib/constants';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function Header() {
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
+    setAreasOpen(false);
   }, [location]);
 
   return (
@@ -38,7 +40,7 @@ export default function Header() {
               </div>
               <div className="leading-tight">
                 <span className="block text-blue-900 font-bold text-sm sm:text-base leading-none">L&M Maintenance</span>
-                <span className="block text-blue-600 text-xs font-medium">& Repair — Grand Junction</span>
+                <span className="block text-blue-600 text-xs font-medium">and Repair — Plumber</span>
               </div>
             </Link>
 
@@ -65,7 +67,25 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link to="/service-areas" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">Service Areas</Link>
+              <div className="relative group">
+                <Link to="/service-areas" className="flex items-center gap-1 text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">
+                  Service Areas <ChevronDown className="w-4 h-4" />
+                </Link>
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2 grid grid-cols-1 gap-0.5">
+                    {SERVICE_AREAS.filter(a => !a.main).map((a) => (
+                      <Link
+                        key={a.slug}
+                        to={`/plumber-${a.slug}`}
+                        className="px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                      >
+                        {a.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <Link to="/about" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">About Us</Link>
               <Link to="/contact" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">Contact</Link>
             </nav>
 
@@ -119,7 +139,34 @@ export default function Header() {
                 )}
               </div>
 
-              <Link to="/service-areas" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">Service Areas</Link>
+              <div>
+                <button
+                  className="flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                  onClick={() => setAreasOpen(!areasOpen)}
+                >
+                  Service Areas <ChevronDown className={`w-4 h-4 transition-transform ${areasOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {areasOpen && (
+                  <div className="ml-4 mt-1 space-y-0.5">
+                    <Link
+                      to="/service-areas"
+                      className="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors font-semibold"
+                    >
+                      All Areas
+                    </Link>
+                    {SERVICE_AREAS.filter(a => !a.main).map((a) => (
+                      <Link
+                        key={a.slug}
+                        to={`/plumber-${a.slug}`}
+                        className="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                      >
+                        {a.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <Link to="/about" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">About Us</Link>
               <Link to="/contact" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">Contact</Link>
 
               <div className="pt-2">

@@ -199,7 +199,7 @@ export default function HomePage() {
                   <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">{service.name}</h3>
                   <p className="text-sm text-gray-500 mb-3 leading-relaxed">{service.short}</p>
                   <div className="flex items-center gap-1 text-blue-600 text-sm font-medium">
-                    View Service <ChevronRight className="w-4 h-4" />
+                    View {service.name} <ChevronRight className="w-4 h-4" />
                   </div>
                 </Link>
               );

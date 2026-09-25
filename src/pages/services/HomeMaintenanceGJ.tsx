@@ -6,14 +6,14 @@ const schema = {
   name: 'Home Maintenance in Grand Junction, CO',
   description: 'Connect with independent residential home maintenance providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
 };
 
 export default function HomeMaintenanceGJ() {
   return (
     <ServicePageLayout
       title="Home Maintenance Grand Junction CO | Residential Property Upkeep"
-      metaDescription="Find residential home maintenance providers in Grand Junction, CO. Seasonal upkeep, inspections, and ongoing maintenance for your home. Call (970) 549-6785."
+      metaDescription="Find residential home maintenance providers in Grand Junction, CO. Seasonal upkeep, inspections, and ongoing maintenance for your home. Call (970) 665-3162."
       canonical="/home-maintenance-grand-junction"
       h1="Home Maintenance in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/5691501/pexels-photo-5691501.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -40,7 +40,7 @@ export default function HomeMaintenanceGJ() {
       sectionImageAlt="Home maintenance professional working at Grand Junction Colorado residence"
       faqs={[
         { q: 'What seasonal home maintenance is important for Grand Junction homeowners?', a: 'Key seasonal tasks in Grand Junction include fall furnace checks and outdoor faucet winterization, spring inspection of caulking and weatherstripping, summer HVAC filter changes, and post-storm roof and exterior inspections. A local provider can customize a maintenance plan for your home.' },
-        { q: 'How do I find a home maintenance provider in Grand Junction?', a: 'Call (970) 549-6785 to connect with available independent local home maintenance providers in Grand Junction. Our free service makes it easy to find reliable help for your residential property.' },
+        { q: 'How do I find a home maintenance provider in Grand Junction?', a: 'Call (970) 665-3162 to connect with available independent local home maintenance providers in Grand Junction. Our free service makes it easy to find reliable help for your residential property.' },
         { q: 'Can a local provider help with multiple maintenance tasks in one visit?', a: 'Yes. Many independent providers in Grand Junction handle multiple maintenance tasks during a single visit, making it efficient to address several items on your home maintenance list at once.' },
         { q: 'Does Grand Junction\'s climate require special home maintenance considerations?', a: 'Yes. The intense UV radiation, dry climate, temperature extremes, and occasional high winds common in Grand Junction mean exterior surfaces, caulking, weatherstripping, and HVAC systems need regular attention to maintain your home in good condition.' },
       ]}

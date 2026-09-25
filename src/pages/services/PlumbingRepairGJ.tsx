@@ -8,7 +8,7 @@ const schema = {
       name: 'Plumbing Repair in Grand Junction, CO',
       description: 'Connect with independent local residential plumbing repair providers in Grand Junction, CO.',
       areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-      provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+      provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
     },
     {
       '@type': 'FAQPage',
@@ -23,7 +23,7 @@ export default function PlumbingRepairGJ() {
   return (
     <ServicePageLayout
       title="Plumbing Repair Grand Junction CO | Residential Plumbing Service"
-      metaDescription="Find available independent residential plumbing repair providers in Grand Junction, CO. Leaks, pipe issues, fixtures and more. Call (970) 549-6785 to connect."
+      metaDescription="Find available independent residential plumbing repair providers in Grand Junction, CO. Leaks, pipe issues, fixtures and more. Call (970) 665-3162 to connect."
       canonical="/plumbing-repair-grand-junction"
       h1="Plumbing Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -50,7 +50,7 @@ export default function PlumbingRepairGJ() {
       sectionImageAlt="Plumbing tools and blueprint for residential repair in Grand Junction"
       faqs={[
         { q: 'What residential plumbing repairs can local providers help with in Grand Junction?', a: 'Independent local providers connected through our service can assist with a full range of residential plumbing repairs including leaks, drain issues, toilet repairs, faucet and fixture work, water heater connections, and more.' },
-        { q: 'How do I find a plumbing repair provider quickly in Grand Junction?', a: 'Simply call (970) 549-6785 to connect with available independent local plumbing providers in Grand Junction. Our free service makes it easy to find qualified help fast.' },
+        { q: 'How do I find a plumbing repair provider quickly in Grand Junction?', a: 'Simply call (970) 665-3162 to connect with available independent local plumbing providers in Grand Junction. Our free service makes it easy to find qualified help fast.' },
         { q: 'Are Grand Junction plumbing providers licensed?', a: 'We strongly recommend verifying that any plumbing provider you hire carries a current Colorado plumbing license and appropriate liability insurance before work begins.' },
         { q: 'Does Grand Junction\'s water quality affect home plumbing?', a: 'Yes. The Grand Junction area has moderately hard water, which can cause mineral buildup in pipes, faucets, and fixtures over time. Regular maintenance and timely repairs by local providers can help extend the life of your home plumbing system.' },
       ]}

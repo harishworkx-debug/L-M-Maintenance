@@ -58,7 +58,7 @@ export default function HomePage() {
     <>
       <SEO
         title={`Plumber in Grand Junction, CO | ${BUSINESS_NAME}`}
-        description={`Expert plumbing services in Grand Junction by ${BUSINESS_NAME}. Leaks, drains, water heaters & more. Call (970) 549-6785.`}
+        description={`Expert plumbing services in Grand Junction by ${BUSINESS_NAME}. Leaks, drains, water heaters & more. Call (970) 665-3162.`}
         canonical="/"
         schema={schema}
       />

@@ -6,14 +6,14 @@ const schema = {
   name: 'Toilet Repair in Grand Junction, CO',
   description: 'Connect with independent residential toilet repair providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
 };
 
 export default function ToiletRepairGJ() {
   return (
     <ServicePageLayout
       title="Toilet Repair Grand Junction CO | Residential Toilet Service"
-      metaDescription="Find toilet repair providers in Grand Junction, CO. Running toilets, leaks, and toilet replacement for residential homes. Free connection service. Call (970) 549-6785."
+      metaDescription="Find toilet repair providers in Grand Junction, CO. Running toilets, leaks, and toilet replacement for residential homes. Free connection service. Call (970) 665-3162."
       canonical="/toilet-repair-grand-junction"
       h1="Toilet Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/8141960/pexels-photo-8141960.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -40,7 +40,7 @@ export default function ToiletRepairGJ() {
       sectionImageAlt="Bathroom toilet repair and fixture service in Grand Junction"
       faqs={[
         { q: 'Why does my toilet keep running in my Grand Junction home?', a: 'A constantly running toilet is usually caused by a worn flapper, a faulty fill valve, or an improperly adjusted float. Grand Junction\'s hard water can accelerate the wear on these components. A local independent provider can identify and fix the exact cause.' },
-        { q: 'Is water leaking around the base of my toilet a serious problem?', a: 'Yes. A leak at the toilet base typically indicates a failed wax ring seal, which should be repaired promptly to prevent water damage to the floor and subfloor. Call (970) 549-6785 to connect with a local provider.' },
+        { q: 'Is water leaking around the base of my toilet a serious problem?', a: 'Yes. A leak at the toilet base typically indicates a failed wax ring seal, which should be repaired promptly to prevent water damage to the floor and subfloor. Call (970) 665-3162 to connect with a local provider.' },
         { q: 'How do I know if my toilet needs repair or replacement?', a: 'If your toilet has significant cracking, repeated mechanical failures, or is an older inefficient model, replacement may be more cost-effective. A local provider can assess your specific toilet and help you make the right decision.' },
         { q: 'Can a provider help with a toilet that won\'t flush properly?', a: 'Yes. Poor flushing is often due to a clog, an issue with the flapper, or low water in the tank. Local independent providers in Grand Junction can diagnose and fix flushing problems for residential toilets.' },
       ]}

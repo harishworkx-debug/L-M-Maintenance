@@ -6,14 +6,14 @@ const schema = {
   name: 'Water Heater Service in Grand Junction, CO',
   description: 'Find independent residential water heater repair and service providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
 };
 
 export default function WaterHeaterServiceGJ() {
   return (
     <ServicePageLayout
       title="Water Heater Service Grand Junction CO | Repair & Replacement"
-      metaDescription="Find available water heater repair and service providers in Grand Junction, CO. Residential water heater repair, maintenance, and replacement. Call (970) 549-6785."
+      metaDescription="Find available water heater repair and service providers in Grand Junction, CO. Residential water heater repair, maintenance, and replacement. Call (970) 665-3162."
       canonical="/water-heater-service-grand-junction"
       h1="Water Heater Service in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/34938439/pexels-photo-34938439.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -42,7 +42,7 @@ export default function WaterHeaterServiceGJ() {
         { q: 'How do I know if my Grand Junction home water heater needs repair or replacement?', a: 'Signs that your water heater needs attention include inconsistent hot water, rusty or discolored water, unusual noises like rumbling or popping, water pooling around the base, or a unit that is more than 10-12 years old. A local independent provider can assess your specific situation.' },
         { q: 'Does Grand Junction\'s hard water affect water heaters?', a: 'Yes. The mineral content in Grand Junction\'s water supply can cause sediment buildup at the bottom of traditional tank water heaters, reducing heating efficiency and potentially causing damage. Annual flushing by a local provider is recommended.' },
         { q: 'Can I connect with a provider for a tankless water heater in Grand Junction?', a: 'Yes. Our service connects homeowners with independent providers who work with both traditional tank and tankless water heater systems in Grand Junction and throughout Mesa County.' },
-        { q: 'How quickly can a local provider address my water heater issue?', a: 'Availability varies by provider and time of day. Call (970) 549-6785 to connect with available independent providers in Grand Junction who may be able to assist with your water heater needs.' },
+        { q: 'How quickly can a local provider address my water heater issue?', a: 'Availability varies by provider and time of day. Call (970) 665-3162 to connect with available independent providers in Grand Junction who may be able to assist with your water heater needs.' },
       ]}
       relatedServices={['plumbing-repair', 'drain-repair', 'home-maintenance', 'faucet-repair']}
       schema={schema}

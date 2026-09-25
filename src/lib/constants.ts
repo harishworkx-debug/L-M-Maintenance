@@ -1,5 +1,5 @@
-export const PHONE = '+19705496785';
-export const PHONE_DISPLAY = '(970) 549-6785';
+export const PHONE = '+19706653162';
+export const PHONE_DISPLAY = '(970) 665-3162';
 export const BUSINESS_NAME = 'L&M Maintenance and Repair';
 export const DOMAIN = 'https://www.gjrepairpros.com';
 export const CITY = 'Grand Junction';

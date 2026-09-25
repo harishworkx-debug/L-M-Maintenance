@@ -6,14 +6,14 @@ const schema = {
   name: 'Electrical Repair in Grand Junction, CO',
   description: 'Connect with independent residential electrical repair providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705496785' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
 };
 
 export default function ElectricalRepairGJ() {
   return (
     <ServicePageLayout
       title="Electrical Repair Grand Junction CO | Residential Electrical Service"
-      metaDescription="Find residential electrical repair providers in Grand Junction, CO. Outlets, switches, panels, and wiring repairs for your home. Call (970) 549-6785 to connect."
+      metaDescription="Find residential electrical repair providers in Grand Junction, CO. Outlets, switches, panels, and wiring repairs for your home. Call (970) 665-3162 to connect."
       canonical="/electrical-repair-grand-junction"
       h1="Electrical Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/3615731/pexels-photo-3615731.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"

@@ -8,7 +8,7 @@ const schema = {
       name: 'Residential Home Repair in Grand Junction, CO',
       description: 'Connect with independent local residential home repair providers in Grand Junction, CO.',
       areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-      provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
+      provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705469838' },
     },
     {
       '@type': 'FAQPage',
@@ -24,7 +24,7 @@ export default function ResidentialHomeRepairGJ() {
   return (
     <ServicePageLayout
       title="Residential Home Repair Grand Junction CO | L&M Maintenance and Repair"
-      metaDescription="Find available independent residential home repair providers in Grand Junction, CO. Connect with local service professionals for all types of home repairs. Call (970) 665-3162."
+      metaDescription="Find available independent residential home repair providers in Grand Junction, CO. Connect with local service professionals for all types of home repairs. Call (970) 546-9838."
       canonical="/residential-home-repair-grand-junction"
       h1="Residential Home Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"

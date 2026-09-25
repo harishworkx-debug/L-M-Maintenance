@@ -6,14 +6,14 @@ const schema = {
   name: 'Faucet Repair in Grand Junction, CO',
   description: 'Connect with independent residential faucet repair providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705469838' },
 };
 
 export default function FaucetRepairGJ() {
   return (
     <ServicePageLayout
       title="Faucet Repair Grand Junction CO | Residential Fixture Service"
-      metaDescription="Connect with residential faucet repair providers in Grand Junction, CO. Dripping faucets, fixture replacements, and more. Free connection service. Call (970) 665-3162."
+      metaDescription="Connect with residential faucet repair providers in Grand Junction, CO. Dripping faucets, fixture replacements, and more. Free connection service. Call (970) 546-9838."
       canonical="/faucet-repair-grand-junction"
       h1="Faucet Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/14953886/pexels-photo-14953886.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -41,7 +41,7 @@ export default function FaucetRepairGJ() {
       faqs={[
         { q: 'Why is my faucet dripping even when fully closed?', a: 'A dripping faucet usually means worn internal components such as a washer, o-ring, or cartridge. Grand Junction\'s moderately hard water can accelerate this wear. A local independent provider can diagnose and repair the specific cause.' },
         { q: 'Is it worth repairing an older faucet or should I replace it?', a: 'It depends on the faucet\'s age and condition. Local independent providers connected through our service can inspect your fixture and advise whether repair or replacement is the more cost-effective option for your home.' },
-        { q: 'Can I get my outdoor spigot repaired in Grand Junction before winter?', a: 'Yes. Outdoor hose bibs and frost-free spigots should be inspected and repaired before cold weather arrives in Grand Junction. Call (970) 665-3162 to connect with local providers who can address outdoor water fixtures.' },
+        { q: 'Can I get my outdoor spigot repaired in Grand Junction before winter?', a: 'Yes. Outdoor hose bibs and frost-free spigots should be inspected and repaired before cold weather arrives in Grand Junction. Call (970) 546-9838 to connect with local providers who can address outdoor water fixtures.' },
         { q: 'Does low water pressure mean I need a faucet repair?', a: 'Low pressure from a single faucet is often a clogged aerator or cartridge issue. Low pressure throughout the home may indicate a different supply problem. A local provider can diagnose the root cause for your specific situation.' },
       ]}
       relatedServices={['plumbing-repair', 'toilet-repair', 'drain-repair', 'water-heater-service']}

@@ -16,7 +16,7 @@ export default function NotFoundPage() {
             <Link to="/" className="inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-xl transition-colors">
               <Home className="w-4 h-4" /> Go Home
             </Link>
-            <a href={`tel:+19706653162`} className="inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-6 py-3 rounded-xl transition-colors">
+            <a href={`tel:+19705469838`} className="inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold px-6 py-3 rounded-xl transition-colors">
               <Phone className="w-4 h-4" /> {PHONE_DISPLAY}
             </a>
           </div>

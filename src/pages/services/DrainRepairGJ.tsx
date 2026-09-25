@@ -6,14 +6,14 @@ const schema = {
   name: 'Drain Repair & Cleaning in Grand Junction, CO',
   description: 'Connect with independent residential drain repair and cleaning providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705469838' },
 };
 
 export default function DrainRepairGJ() {
   return (
     <ServicePageLayout
       title="Drain Repair & Cleaning Grand Junction CO | Residential Drain Service"
-      metaDescription="Find available residential drain repair and cleaning providers in Grand Junction, CO. Clogged, slow, or backed-up drains cleared fast. Call (970) 665-3162."
+      metaDescription="Find available residential drain repair and cleaning providers in Grand Junction, CO. Clogged, slow, or backed-up drains cleared fast. Call (970) 546-9838."
       canonical="/drain-repair-grand-junction"
       h1="Drain Repair & Cleaning in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/87299/pexels-photo-87299.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -40,7 +40,7 @@ export default function DrainRepairGJ() {
       sectionImageAlt="Drain cleaning and repair service in Grand Junction"
       faqs={[
         { q: 'Why are my drains slow throughout my Grand Junction home?', a: 'Slow drains in multiple fixtures usually indicate a problem in the main drain line rather than individual clogs. Local independent providers can diagnose whether the issue is a buildup, a blockage, or a structural drain line problem.' },
-        { q: 'How can I find a drain cleaning provider in Grand Junction?', a: 'Call (970) 665-3162 to connect with available independent local drain repair providers in Grand Junction. Our free service makes it quick and easy to find help.' },
+        { q: 'How can I find a drain cleaning provider in Grand Junction?', a: 'Call (970) 546-9838 to connect with available independent local drain repair providers in Grand Junction. Our free service makes it quick and easy to find help.' },
         { q: 'Can drain problems in Grand Junction homes be prevented?', a: 'Regular maintenance — using drain strainers, avoiding grease disposal down kitchen drains, and occasional professional drain cleaning — can significantly reduce the frequency of residential drain problems.' },
         { q: 'Do Grand Junction homes have specific drain issues due to the soil?', a: 'Yes. The clay-heavy soils common in the Grand Junction valley can shift with seasonal moisture changes, affecting underground drain lines over time. Older homes particularly benefit from periodic drain line inspections by local providers.' },
       ]}

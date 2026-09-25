@@ -6,14 +6,14 @@ const schema = {
   name: 'Lighting Repair in Grand Junction, CO',
   description: 'Connect with independent residential lighting repair and installation providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705469838' },
 };
 
 export default function LightingRepairGJ() {
   return (
     <ServicePageLayout
       title="Lighting Repair Grand Junction CO | Residential Light Fixture Service"
-      metaDescription="Find residential lighting repair and installation providers in Grand Junction, CO. Interior and exterior light fixtures, ceiling fans, and more. Call (970) 665-3162."
+      metaDescription="Find residential lighting repair and installation providers in Grand Junction, CO. Interior and exterior light fixtures, ceiling fans, and more. Call (970) 546-9838."
       canonical="/lighting-repair-grand-junction"
       h1="Lighting Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -42,7 +42,7 @@ export default function LightingRepairGJ() {
         { q: 'Why are the lights flickering in my Grand Junction home?', a: 'Flickering lights can indicate a loose bulb, a faulty fixture, a bad switch, or in more serious cases, a wiring issue. A local independent provider can troubleshoot and determine the exact cause for your specific situation.' },
         { q: 'Can I get exterior lighting repaired or installed in Grand Junction?', a: 'Yes. Local independent providers in Grand Junction can help with exterior porch lights, motion-sensor security lights, garage lights, and outdoor landscape lighting for residential properties.' },
         { q: 'Does ceiling fan installation require a licensed electrician in Grand Junction?', a: 'If your installation involves new wiring or changes to the electrical box, a licensed electrician is typically required. If it\'s a direct fixture swap, requirements may differ. Verify with your provider before work begins.' },
-        { q: 'How do I connect with a lighting repair provider in Grand Junction?', a: 'Simply call (970) 665-3162 to connect with available independent lighting repair providers in Grand Junction through our free homeowner connection service.' },
+        { q: 'How do I connect with a lighting repair provider in Grand Junction?', a: 'Simply call (970) 546-9838 to connect with available independent lighting repair providers in Grand Junction through our free homeowner connection service.' },
       ]}
       relatedServices={['electrical-repair', 'residential-home-repair', 'home-maintenance']}
       schema={schema}

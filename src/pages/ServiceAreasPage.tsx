@@ -9,7 +9,7 @@ export default function ServiceAreasPage() {
     <>
       <SEO
         title="Home Repair Service Areas | Grand Junction & Mesa County, CO"
-        description="Residential home repair and maintenance service connection covering Grand Junction, Fruita, Palisade, Clifton, Orchard Mesa, and all of Mesa County, CO. Call (970) 665-3162."
+        description="Residential home repair and maintenance service connection covering Grand Junction, Fruita, Palisade, Clifton, Orchard Mesa, and all of Mesa County, CO. Call (970) 546-9838."
         canonical="/service-areas"
       />
 

@@ -6,14 +6,14 @@ const schema = {
   name: 'Drywall Repair in Grand Junction, CO',
   description: 'Connect with independent residential drywall repair providers in Grand Junction, CO.',
   areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19706653162' },
+  provider: { '@type': 'LocalBusiness', name: 'L&M Maintenance and Repair', telephone: '+19705469838' },
 };
 
 export default function DrywallRepairGJ() {
   return (
     <ServicePageLayout
       title="Drywall Repair Grand Junction CO | Residential Wall & Ceiling Repair"
-      metaDescription="Find residential drywall repair providers in Grand Junction, CO. Holes, cracks, water damage, and texture matching for your home. Call (970) 665-3162 to connect."
+      metaDescription="Find residential drywall repair providers in Grand Junction, CO. Holes, cracks, water damage, and texture matching for your home. Call (970) 546-9838 to connect."
       canonical="/drywall-repair-grand-junction"
       h1="Drywall Repair in Grand Junction, CO"
       heroImage="https://images.pexels.com/photos/3616762/pexels-photo-3616762.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -41,7 +41,7 @@ export default function DrywallRepairGJ() {
       faqs={[
         { q: 'Can a Grand Junction provider match my existing wall texture?', a: 'Yes. Skilled local independent drywall providers can match common residential textures including orange peel, knockdown, smooth finish, and popcorn ceilings, making repairs nearly invisible once painted.' },
         { q: 'What causes cracks in drywall in Grand Junction homes?', a: 'Cracks in Grand Junction homes often result from seasonal soil movement and settling, temperature and humidity fluctuations, and normal structural settling over time. A local provider can assess whether the crack is cosmetic or indicates a more significant structural concern.' },
-        { q: 'How do I connect with a drywall repair provider in Grand Junction?', a: 'Call (970) 665-3162 to connect with available independent residential drywall repair providers in Grand Junction through our free connection service.' },
+        { q: 'How do I connect with a drywall repair provider in Grand Junction?', a: 'Call (970) 546-9838 to connect with available independent residential drywall repair providers in Grand Junction through our free connection service.' },
         { q: 'Does drywall repair include painting?', a: 'This varies by provider. Some independent providers offer painting as part of the repair process; others provide repairs to a paint-ready surface. Ask the provider when you connect what\'s included in their service.' },
       ]}
       relatedServices={['carpentry-repair', 'residential-home-repair', 'home-maintenance', 'plumbing-repair']}

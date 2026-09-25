@@ -12,7 +12,7 @@ export default function ServicePageGJ() {
   }
 
   const h1 = `${service.name} in Grand Junction, CO`;
-  const metaDescription = `Expert ${service.name.toLowerCase()} services in Grand Junction, CO. Fast, reliable, and professional plumbing by ${BUSINESS_NAME}. Call (970) 665-3162.`;
+  const metaDescription = `Expert ${service.name.toLowerCase()} services in Grand Junction, CO. Fast, reliable, and professional plumbing by ${BUSINESS_NAME}. Call (970) 546-9838.`;
 
   const schema = {
     '@context': 'https://schema.org',

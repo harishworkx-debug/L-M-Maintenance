@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <SEO
         title={`Contact | ${BUSINESS_NAME} — Grand Junction, CO`}
-        description="Contact L&M Maintenance and Repair to connect with independent local residential home repair providers in Grand Junction, CO. Call (970) 665-3162."
+        description="Contact L&M Maintenance and Repair to connect with independent local residential home repair providers in Grand Junction, CO. Call (970) 546-9838."
         canonical="/contact"
         schema={schema}
       />

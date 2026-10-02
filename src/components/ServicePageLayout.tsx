@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Phone, CheckCircle, ChevronRight, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
-import { PHONE, PHONE_DISPLAY, MAIN_SERVICES } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, MAIN_SERVICES, BUSINESS_NAME } from '@/lib/constants';
 
 interface FAQ {
   q: string;
@@ -24,6 +24,7 @@ interface ServicePageLayoutProps {
   relatedServices?: string[];
   sectionImage?: string;
   sectionImageAlt?: string;
+  serviceName?: string;
 }
 
 export default function ServicePageLayout({
@@ -41,6 +42,7 @@ export default function ServicePageLayout({
   relatedServices = [],
   sectionImage,
   sectionImageAlt,
+  serviceName = 'Plumbing',
 }: ServicePageLayoutProps) {
   const related = MAIN_SERVICES.filter((s) => relatedServices.includes(s.slug));
 
@@ -75,12 +77,24 @@ export default function ServicePageLayout({
       <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div className="lg:col-span-2 space-y-5">
-              <p className="text-lg text-gray-700 leading-relaxed">{intro}</p>
-              <div
-                className="text-gray-600 leading-relaxed space-y-4"
-                dangerouslySetInnerHTML={{ __html: bodyContent }}
-              />
+            <div className="lg:col-span-2 space-y-8">
+              <div>
+                <p className="text-lg text-gray-700 leading-relaxed font-medium mb-6">{intro}</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our {serviceName} Services in Grand Junction</h2>
+                <div
+                  className="text-gray-600 leading-relaxed space-y-4"
+                  dangerouslySetInnerHTML={{ __html: bodyContent }}
+                />
+              </div>
+
+              {/* Added SEO Section: Signs You Need a Plumber */}
+              <div className="bg-blue-50/50 rounded-2xl p-8 border border-blue-100">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Signs Your Home Needs {serviceName}</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  It's not always obvious when a minor issue requires professional intervention. If you notice unusual noises, sudden drops in water pressure, visible water damage, or persistent bad odors coming from your drains, it's time to call in the experts. Attempting DIY repairs on complex {serviceName.toLowerCase()} problems can often lead to more expensive damage down the line. Our Grand Junction technicians are fully equipped to diagnose the root cause quickly and provide a lasting solution.
+                </p>
+              </div>
+
             </div>
             <aside>
               <div className="bg-blue-700 rounded-2xl p-6 text-white sticky top-24">
@@ -101,12 +115,12 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* What We Offer */}
+      {/* What We Offer / Common Problems */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Common Residential Service Needs</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Common {serviceName} Problems We Repair</h2>
               <ul className="space-y-3">
                 {whatWeOffer.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -139,6 +153,16 @@ export default function ServicePageLayout({
               </div>
             )}
           </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Why Choose {BUSINESS_NAME}?</h2>
+          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+            When you need reliable plumbing and {serviceName.toLowerCase()} services in Grand Junction, CO, you need a team you can trust. We offer upfront pricing, licensed and insured professionals, and a commitment to 100% customer satisfaction. Our fast response times ensure that your plumbing emergency is handled efficiently, minimizing damage and stress.
+          </p>
         </div>
       </section>
 

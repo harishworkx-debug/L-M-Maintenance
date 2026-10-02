@@ -67,6 +67,9 @@ export default function Footer() {
               <li>
                 <Link to="/service-areas" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">All Service Areas</Link>
               </li>
+              <li>
+                <Link to="/reviews" className="text-sm text-gray-400 hover:text-blue-400 transition-colors">Customer Reviews</Link>
+              </li>
             </ul>
           </div>
 

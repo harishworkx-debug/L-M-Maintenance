@@ -3,25 +3,30 @@ import { Phone, MapPin, CheckCircle, ChevronRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
 import { PHONE, PHONE_DISPLAY, MAIN_SERVICES, SERVICE_AREAS, BUSINESS_NAME } from '@/lib/constants';
+import { LOCATION_SEO_CONTENT } from '@/lib/seo-content';
 
 interface LocationPageProps {
   city: string;
   slug: string;
   county?: string;
-  description?: string;
 }
 
 export default function LocationPage({
   city,
   slug,
   county = 'Mesa County',
-  description,
 }: LocationPageProps) {
   const canonical = `/plumber-${slug}`;
   const title = `Plumber in ${city} CO | ${BUSINESS_NAME}`;
-  const metaDescription =
-    description ||
-    `Expert plumbing services in ${city}, CO. Call ${BUSINESS_NAME} at ${PHONE_DISPLAY} for fast, reliable plumbing, drain, and water heater repair.`;
+  
+  const seoData = LOCATION_SEO_CONTENT[slug] || {
+    description: `Expert plumbing services in ${city}, CO. Call ${BUSINESS_NAME} at ${PHONE_DISPLAY} for fast, reliable plumbing, drain, and water heater repair.`,
+    body: `
+      <p>Looking for a reliable plumber in ${city}, CO? ${BUSINESS_NAME} is your local expert for all plumbing, drain cleaning, and water heater repairs. We provide fast, professional service to ensure your home or business plumbing systems are running smoothly.</p>
+      <p>As a locally owned and operated business, we understand the unique plumbing needs of ${city} residents. Whether you're dealing with a leaky faucet, a stubborn clog, or need a complete water heater replacement, our experienced technicians are ready to help.</p>
+      <p>Don't let plumbing issues disrupt your day. We pride ourselves on prompt arrivals, transparent pricing, and getting the job done right the first time.</p>
+    `
+  };
 
   const h1 = `Expert Plumber in ${city}, CO`;
 
@@ -29,7 +34,7 @@ export default function LocationPage({
     '@context': 'https://schema.org',
     '@type': 'PlumbingService',
     name: h1,
-    description: metaDescription,
+    description: seoData.description,
     areaServed: { '@type': 'City', name: `${city}, CO` },
     provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
   };
@@ -38,7 +43,7 @@ export default function LocationPage({
 
   return (
     <>
-      <SEO title={title} description={metaDescription} canonical={canonical} schema={schema} />
+      <SEO title={title} description={seoData.description} canonical={canonical} schema={schema} />
 
       {/* Hero */}
       <section className="relative h-64 sm:h-80 flex items-end overflow-hidden bg-blue-950">
@@ -68,27 +73,22 @@ export default function LocationPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2 space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Looking for a reliable plumber in {city}, CO? {BUSINESS_NAME} is your local expert for all plumbing, drain cleaning, and water heater repairs. We provide fast, professional service to ensure your home or business plumbing systems are running smoothly.
-              </p>
+              
+              <div 
+                className="text-lg text-gray-700 leading-relaxed space-y-6"
+                dangerouslySetInnerHTML={{ __html: seoData.body }}
+              />
 
-              <div className="text-gray-600 space-y-4 leading-relaxed">
-                <p>
-                  As a locally owned and operated business, we understand the unique plumbing needs of {city} residents. Whether you're dealing with a leaky faucet, a stubborn clog, or need a complete water heater replacement, our experienced technicians are ready to help.
-                </p>
-                <p>
-                  Don't let plumbing issues disrupt your day. We pride ourselves on prompt arrivals, transparent pricing, and getting the job done right the first time.
-                </p>
-              </div>
-
-              <h2 className="text-xl font-bold text-gray-900 pt-2">
+              <h2 className="text-xl font-bold text-gray-900 pt-6 border-t border-gray-100">
                 Our Plumbing Services in {city}
               </h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {MAIN_SERVICES.map((s) => (
                   <li key={s.slug} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">{s.name}</span>
+                    <Link to={`/${s.slug}-grand-junction`} className="text-gray-700 text-sm hover:text-blue-700 hover:underline">
+                      {s.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -135,6 +135,28 @@ export default function LocationPage({
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {seoData.faqs && seoData.faqs.length > 0 && (
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {seoData.faqs.map(({ q, a }: { q: string, a: string }) => (
+                <details key={q} className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer list-none font-semibold text-gray-900 hover:text-blue-700 transition-colors">
+                    {q}
+                    <ChevronRight className="w-5 h-5 text-gray-400 group-open:rotate-90 transition-transform flex-shrink-0 ml-3" />
+                  </summary>
+                  <div className="px-5 pb-5">
+                    <p className="text-gray-600 leading-relaxed">{a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <CallCTA />
 

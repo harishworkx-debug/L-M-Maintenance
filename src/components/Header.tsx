@@ -92,6 +92,7 @@ export default function Header() {
                 </div>
               </div>
               <Link to="/about" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">About Us</Link>
+              <Link to="/reviews" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">Reviews</Link>
               <Link to="/contact" className="text-gray-700 hover:text-blue-700 font-medium text-sm transition-colors">Contact</Link>
             </nav>
 
@@ -173,6 +174,7 @@ export default function Header() {
                 )}
               </div>
               <Link to="/about" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">About Us</Link>
+              <Link to="/reviews" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">Reviews</Link>
               <Link to="/contact" className="block px-3 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors">Contact</Link>
 
               <div className="pt-2">

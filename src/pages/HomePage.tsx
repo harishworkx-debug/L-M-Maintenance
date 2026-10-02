@@ -6,7 +6,7 @@ import {
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
 import {
-  PHONE, PHONE_DISPLAY, BUSINESS_NAME, SERVICE_AREAS, MAIN_SERVICES
+  PHONE, PHONE_DISPLAY, BUSINESS_NAME, SERVICE_AREAS, MAIN_SERVICES, REVIEW_COUNT
 } from '@/lib/constants';
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -58,7 +58,7 @@ export default function HomePage() {
     <>
       <SEO
         title={`Plumber in Grand Junction, CO | ${BUSINESS_NAME}`}
-        description={`Expert plumbing services in Grand Junction by ${BUSINESS_NAME}. Leaks, drains, water heaters & more. Call (970) 546-9838.`}
+        description={`Looking for a plumber in Grand Junction, CO? Explore plumbing repair and service options from ${BUSINESS_NAME}. Contact our team for help with your plumbing needs.`}
         canonical="/"
         schema={schema}
       />
@@ -81,12 +81,11 @@ export default function HomePage() {
               Serving Grand Junction &amp; Mesa County, CO
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Grand Junction's<br />
-              <span className="text-blue-400">Trusted Plumbing</span><br />
-              Professionals
+              Reliable Plumbing Services<br />
+              <span className="text-blue-400">in Grand Junction, CO</span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
-              From leaky faucets to full water heater replacements, {BUSINESS_NAME} delivers fast, reliable, and expert plumbing services for your home or business.
+              Looking for a local plumbing company you can trust? As a leading plumbing contractor and residential plumber, {BUSINESS_NAME} delivers fast plumbing repair and professional plumbing services for your home.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -221,7 +220,7 @@ export default function HomePage() {
                 At {BUSINESS_NAME}, we know that plumbing issues can bring your day to a halt. That's why our dedicated team of professionals is committed to providing fast, effective, and lasting solutions.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                We take pride in our workmanship and our reputation in the Grand Junction community. Whether it's a routine inspection, complex pipe repairs, or emergency water heater replacement, you can count on us to deliver exceptional service every time.
+                We take pride in our workmanship and our reputation in the Grand Junction community. Whether you need <Link to="/plumbing-repair-grand-junction" className="text-blue-600 hover:underline">plumbing repair services</Link>, <Link to="/drain-repair-grand-junction" className="text-blue-600 hover:underline">professional drain repair</Link>, or reliable <Link to="/water-heater-service-grand-junction" className="text-blue-600 hover:underline">water heater service</Link>, you can count on us to deliver exceptional results. We proudly offer <Link to="/plumber-fruita" className="text-blue-600 hover:underline">plumbing services in Fruita</Link>, <Link to="/plumber-palisade" className="text-blue-600 hover:underline">plumbing services in Palisade</Link>, and across the entire Mesa County region.
               </p>
 
               <ul className="space-y-3 mb-8">
@@ -274,9 +273,9 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 border border-red-500/30 text-sm font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">
                 <AlertTriangle className="w-4 h-4" /> Emergency Service
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Have a Plumbing Emergency?</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Need an Emergency Plumber in Grand Junction?</h2>
               <p className="text-blue-100 text-lg leading-relaxed max-w-xl">
-                Burst pipes, severe leaks, and major clogs don't wait for regular business hours. Call us immediately for fast, responsive emergency plumbing repairs in Grand Junction.
+                Burst pipes, severe leaks, and major clogs don't wait for regular business hours. If you need an emergency plumber in Grand Junction, CO, call us immediately for fast, responsive service.
               </p>
             </div>
             <div className="relative z-10">
@@ -352,9 +351,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: 'Sarah M.', loc: 'Grand Junction, CO', text: 'Incredibly fast response when our water heater broke. The technician was polite, explained the costs upfront, and had a new unit installed the same day. Highly recommended!' },
-              { name: 'David L.', loc: 'Fruita, CO', text: 'L&M Maintenance fixed a stubborn leak under our kitchen sink that two other companies couldn\'t figure out. Honest pricing and fantastic workmanship.' },
-              { name: 'Jennifer K.', loc: 'Palisade, CO', text: 'I called them for a clogged main sewer line. They were at my house within an hour and had the problem resolved quickly. Will definitely use them again.' }
+              { name: 'Jennifer Desmond', text: "Alex with L&M Maintenance and Repair came out on a Saturday when my mom's heat went out and her regular company doesn't service evenings or weekends. He restored heat, addressed a few minor issues, and clearly explained what needed attention versus what could wait. His communication was thoughtful, honest, and compassionate." },
+              { name: 'Krista Bryant', text: "I'm thoroughly impressed with how fast he was able to get here, find the problem, and get it fixed. I've had two other plumbers here that put a \"bandaid\" on the problem, Alex came in and got the problem handled within the matter of an hour. Quick, reliable, and kind." },
+              { name: 'Jaime Saenz', text: "Our furnace stopped working late on a Friday evening and after calling several \"24 hour\" companies to only be told we'd have to wait until Monday, L&M answered and was here within an hour! He got our heat back on within an hour. Thank you so much for spending your Friday night helping our family." }
             ].map((review, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                 <div className="flex text-yellow-400 mb-4">
@@ -363,10 +362,18 @@ export default function HomePage() {
                 <p className="text-gray-600 italic mb-6 leading-relaxed">"{review.text}"</p>
                 <div>
                   <p className="font-bold text-gray-900">{review.name}</p>
-                  <p className="text-sm text-gray-500">{review.loc}</p>
+                  <p className="text-sm text-gray-500">Google Review</p>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              to="/reviews"
+              className="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-800 transition-colors"
+            >
+              Read All {REVIEW_COUNT} Reviews <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

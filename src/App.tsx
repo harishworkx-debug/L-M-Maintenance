@@ -10,9 +10,11 @@ import ContactPage from '@/pages/ContactPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import AboutPage from '@/pages/AboutPage';
 import LocationPage from '@/pages/LocationPage';
+import ReviewsPage from '@/pages/ReviewsPage';
 
 // Grand Junction service pages (Plumbing focused)
 import ServicePageGJ from '@/pages/ServicePageGJ';
+import { MAIN_SERVICES } from '@/lib/constants';
 
 export default function App() {
   return (
@@ -24,7 +26,9 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
 
           {/* Grand Junction service pages (Dynamic) */}
-          <Route path="/:slug-grand-junction" element={<ServicePageGJ />} />
+          {MAIN_SERVICES.map((service) => (
+            <Route key={service.slug} path={`/${service.slug}-grand-junction`} element={<ServicePageGJ serviceSlug={service.slug} />} />
+          ))}
 
           {/* Single Plumber Location Pages */}
           <Route path="/plumber-fruita" element={<LocationPage city="Fruita" slug="fruita" />} />
@@ -38,6 +42,7 @@ export default function App() {
           {/* Misc */}
           <Route path="/service-areas" element={<ServiceAreasPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -23,14 +23,19 @@ export default function SEO({ title, description, canonical, schema }: SEOProps)
       el.setAttribute('content', content);
     };
 
+    const cleanCanonical = canonical ? (canonical.startsWith('/') ? canonical : `/${canonical}`) : '';
+    const canonicalUrl = cleanCanonical === '/' || cleanCanonical === '' ? `${DOMAIN}/` : `${DOMAIN}${cleanCanonical.replace(/\/$/, '')}`;
+
     setMeta('description', description);
     setMeta('og:title', title, true);
     setMeta('og:description', description, true);
     setMeta('og:type', 'website', true);
-    setMeta('twitter:title', title, true);
-    setMeta('twitter:description', description, true);
+    setMeta('og:url', canonicalUrl, true);
+    setMeta('og:site_name', 'L&M Maintenance and Repair', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', title);
+    setMeta('twitter:description', description);
 
-    const canonicalUrl = canonical ? `${DOMAIN}${canonical}` : DOMAIN;
     let linkEl = document.querySelector('link[rel="canonical"]');
     if (!linkEl) {
       linkEl = document.createElement('link');

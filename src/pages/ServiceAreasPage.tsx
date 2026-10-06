@@ -84,17 +84,10 @@ export default function ServiceAreasPage() {
                   </div>
                   <div className="space-y-2">
                     <Link
-                      to={`/home-repair-${area.slug}`}
+                      to={`/plumber-${area.slug}`}
                       className="flex items-center justify-between text-sm text-gray-700 hover:text-blue-700 transition-colors group"
                     >
-                      <span>Home Repair</span>
-                      <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-500" />
-                    </Link>
-                    <Link
-                      to={`/maintenance-repair-${area.slug}`}
-                      className="flex items-center justify-between text-sm text-gray-700 hover:text-blue-700 transition-colors group"
-                    >
-                      <span>Maintenance &amp; Repair</span>
+                      <span>Plumbing Services</span>
                       <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-500" />
                     </Link>
                   </div>

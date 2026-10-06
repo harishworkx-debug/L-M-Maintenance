@@ -287,26 +287,28 @@ function generateRouteHtml(route, baseHtml) {
   // Pre-render minimal semantic body content inside #root for SEO indexing
   const bodyMarkup = `
     <div id="root">
-      <header>
-        <nav>
-          <a href="/">Home</a> | 
-          <a href="/service-areas">Service Areas</a> | 
-          <a href="/about">About</a> | 
-          <a href="/reviews">Reviews</a> | 
-          <a href="/contact">Contact</a>
-        </nav>
-      </header>
-      <main>
-        <article style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-          <h1>${route.h1}</h1>
-          <p>${route.description}</p>
-          <p>For immediate plumbing assistance in Grand Junction and Mesa County, call us today at <a href="tel:${PHONE}">${PHONE_DISPLAY}</a>.</p>
-        </article>
-      </main>
-      <footer>
-        <p>&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}. All rights reserved.</p>
-        <p>Serving Grand Junction, Fruita, Palisade, Clifton, Orchard Mesa, Loma, Mack, Whitewater, CO.</p>
-      </footer>
+      <div style="opacity: 0; position: absolute; pointer-events: none; z-index: -1; height: 0; overflow: hidden;">
+        <header>
+          <nav>
+            <a href="/">Home</a> | 
+            <a href="/service-areas">Service Areas</a> | 
+            <a href="/about">About</a> | 
+            <a href="/reviews">Reviews</a> | 
+            <a href="/contact">Contact</a>
+          </nav>
+        </header>
+        <main>
+          <article style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+            <h1>${route.h1}</h1>
+            <p>${route.description}</p>
+            <p>For immediate plumbing assistance in Grand Junction and Mesa County, call us today at <a href="tel:${PHONE}">${PHONE_DISPLAY}</a>.</p>
+          </article>
+        </main>
+        <footer>
+          <p>&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}. All rights reserved.</p>
+          <p>Serving Grand Junction, Fruita, Palisade, Clifton, Orchard Mesa, Loma, Mack, Whitewater, CO.</p>
+        </footer>
+      </div>
     </div>
   `;
 
@@ -373,5 +375,7 @@ for (const route of ROUTES) {
 
 sitemapXml += `</urlset>\n`;
 
+const DIST_SITEMAP_PATH = path.resolve(__dirname, '../dist/sitemap.xml');
 fs.writeFileSync(SITEMAP_PATH, sitemapXml, 'utf-8');
+fs.writeFileSync(DIST_SITEMAP_PATH, sitemapXml, 'utf-8');
 console.log(`Successfully generated sitemap.xml with ${ROUTES.length} URLs!`);

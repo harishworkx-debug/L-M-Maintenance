@@ -341,3 +341,37 @@ for (const route of ROUTES) {
 }
 
 console.log(`\nSuccessfully pre-rendered ${generatedCount} static pages for Google Search Console indexing!`);
+
+// Generate sitemap.xml
+const SITEMAP_PATH = path.resolve(__dirname, '../public/sitemap.xml');
+const currentDate = new Date().toISOString().split('T')[0];
+
+let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
+
+for (const route of ROUTES) {
+  let priority = "0.8";
+  let changefreq = "weekly";
+  if (route.path === '/') {
+    priority = "1.0";
+    changefreq = "daily";
+  } else if (route.path.includes('grand-junction')) {
+    priority = "0.9";
+  }
+  
+  const fullCanonicalUrl = route.canonical === '/' ? `${DOMAIN}/` : `${DOMAIN}${route.canonical}`;
+
+  sitemapXml += `  <url>
+    <loc>${fullCanonicalUrl}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`;
+}
+
+sitemapXml += `</urlset>\n`;
+
+fs.writeFileSync(SITEMAP_PATH, sitemapXml, 'utf-8');
+console.log(`Successfully generated sitemap.xml with ${ROUTES.length} URLs!`);

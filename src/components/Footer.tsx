@@ -77,7 +77,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Service Areas</h3>
             <ul className="space-y-2">
-              {SERVICE_AREAS.filter((a) => !a.main).slice(0, 5).map((area) => (
+              {SERVICE_AREAS.filter((a) => !a.main).map((area) => (
                 <li key={area.slug}>
                   <Link
                     to={`/plumber-${area.slug}`}

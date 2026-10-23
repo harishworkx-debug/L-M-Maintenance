@@ -57,8 +57,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title={`Plumber in Grand Junction, CO | ${BUSINESS_NAME}`}
-        description={`Looking for a plumber in Grand Junction, CO? Explore plumbing repair and service options from ${BUSINESS_NAME}. Contact our team for help with your plumbing needs.`}
+        title={`Plumber Grand Junction CO | ${BUSINESS_NAME}`}
+        description={`Looking for a reliable plumber in Grand Junction, CO? ${BUSINESS_NAME} provides emergency plumbing repairs, water heater service, drain cleaning, and pipe repair across Mesa County. Call (970) 546-9838.`}
         canonical="/"
         schema={schema}
       />
@@ -69,6 +69,10 @@ export default function HomePage() {
           <img
             src="https://images.pexels.com/photos/12777517/pexels-photo-12777517.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
             alt="Grand Junction Colorado mountain landscape"
+            width={940}
+            height={650}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/90 to-blue-900/70" />
@@ -81,8 +85,8 @@ export default function HomePage() {
               Serving Grand Junction &amp; Mesa County, CO
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Reliable Plumbing Services<br />
-              <span className="text-blue-400">in Grand Junction, CO</span>
+              Plumber in Grand Junction, CO<br />
+              <span className="text-blue-400 text-3xl sm:text-4xl lg:text-5xl font-bold">{BUSINESS_NAME}</span>
             </h1>
             <p className="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl">
               Looking for a local plumbing company you can trust? As a leading plumbing contractor and residential plumber, {BUSINESS_NAME} delivers fast plumbing repair and professional plumbing services for your home.
@@ -251,6 +255,10 @@ export default function HomePage() {
               <img
                 src="https://images.pexels.com/photos/4981803/pexels-photo-4981803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
                 alt="Plumbing professional at work in Grand Junction"
+                width={940}
+                height={650}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl shadow-2xl w-full object-cover h-[500px]"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-700 text-white rounded-2xl p-5 shadow-xl">

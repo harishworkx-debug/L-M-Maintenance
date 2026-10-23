@@ -55,6 +55,10 @@ export default function ServicePageLayout({
         <img
           src={heroImage}
           alt={heroImageAlt}
+          width={1600}
+          height={600}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/60 to-transparent" />
@@ -141,7 +145,15 @@ export default function ServicePageLayout({
             </div>
             {sectionImage ? (
               <div className="rounded-2xl overflow-hidden shadow-lg h-80">
-                <img src={sectionImage} alt={sectionImageAlt || ''} className="w-full h-full object-cover" />
+                <img
+                  src={sectionImage}
+                  alt={sectionImageAlt || ''}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
               </div>
             ) : (
               <div className="rounded-2xl overflow-hidden shadow-lg h-80 bg-blue-50 flex items-center justify-center">
@@ -180,7 +192,10 @@ export default function ServicePageLayout({
                   <ChevronRight className="w-5 h-5 text-gray-400 group-open:rotate-90 transition-transform flex-shrink-0 ml-3" />
                 </summary>
                 <div className="px-5 pb-5">
-                  <p className="text-gray-600 leading-relaxed">{a}</p>
+                  <div 
+                    className="text-gray-600 leading-relaxed space-y-2 text-sm sm:text-base"
+                    dangerouslySetInnerHTML={{ __html: a }}
+                  />
                 </div>
               </details>
             ))}

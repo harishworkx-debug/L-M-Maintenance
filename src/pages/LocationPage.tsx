@@ -17,8 +17,6 @@ export default function LocationPage({
   county = 'Mesa County',
 }: LocationPageProps) {
   const canonical = `/plumber-${slug}`;
-  const title = `Plumber in ${city} CO | ${BUSINESS_NAME}`;
-  
   const seoData = LOCATION_SEO_CONTENT[slug] || {
     description: `Expert plumbing services in ${city}, CO. Call ${BUSINESS_NAME} at ${PHONE_DISPLAY} for fast, reliable plumbing, drain, and water heater repair.`,
     body: `
@@ -28,15 +26,55 @@ export default function LocationPage({
     `
   };
 
-  const h1 = `Expert Plumber in ${city}, CO`;
+  const title = seoData.title || `Plumber in ${city} CO | ${BUSINESS_NAME}`;
+  const h1 = seoData.h1 || `Plumbing Services in ${city}, CO`;
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'PlumbingService',
-    name: h1,
-    description: seoData.description,
-    areaServed: { '@type': 'City', name: `${city}, CO` },
-    provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
+    '@graph': [
+      {
+        '@type': 'PlumbingService',
+        name: h1,
+        description: seoData.description,
+        areaServed: { '@type': 'City', name: `${city}, CO` },
+        provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
+        telephone: PHONE,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://www.gjrepairpros.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Service Areas',
+            item: 'https://www.gjrepairpros.com/service-areas',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: h1,
+            item: `https://www.gjrepairpros.com${canonical}`,
+          },
+        ],
+      },
+      ...(seoData.faqs && seoData.faqs.length > 0 ? [{
+        '@type': 'FAQPage',
+        mainEntity: seoData.faqs.map((faq: { q: string, a: string }) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a.replace(/<[^>]*>/g, '')
+          }
+        }))
+      }] : [])
+    ]
   };
 
   const nearby = SERVICE_AREAS.filter((a) => a.slug !== slug && !a.main).slice(0, 4);
@@ -50,6 +88,10 @@ export default function LocationPage({
         <img
           src="https://images.pexels.com/photos/15048771/pexels-photo-15048771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
           alt={`Residential neighborhood in ${city}, Colorado`}
+          width={940}
+          height={650}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-25"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/70 to-transparent" />
@@ -149,7 +191,10 @@ export default function LocationPage({
                     <ChevronRight className="w-5 h-5 text-gray-400 group-open:rotate-90 transition-transform flex-shrink-0 ml-3" />
                   </summary>
                   <div className="px-5 pb-5">
-                    <p className="text-gray-600 leading-relaxed">{a}</p>
+                    <div 
+                      className="text-gray-600 leading-relaxed space-y-2 text-sm sm:text-base"
+                      dangerouslySetInnerHTML={{ __html: a }}
+                    />
                   </div>
                 </details>
               ))}

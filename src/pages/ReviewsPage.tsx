@@ -242,8 +242,8 @@ export default function ReviewsPage() {
   return (
     <>
       <SEO
-        title={`Customer Reviews | ${BUSINESS_NAME} – Rated ${RATING}/5`}
-        description={`Read ${REVIEW_COUNT} real customer reviews of ${BUSINESS_NAME}. See why homeowners in Grand Junction trust us for plumbing, HVAC, and home repairs.`}
+        title={`Reviews for ${BUSINESS_NAME} (GJ Repair Pros) | Grand Junction CO`}
+        description={`Read verified customer reviews for ${BUSINESS_NAME} (GJ Repair Pros) in Grand Junction, CO. See real ratings, repair experiences, dates, and leave feedback on Google.`}
         canonical="/reviews"
         schema={schema}
       />
@@ -260,16 +260,26 @@ export default function ReviewsPage() {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              {REVIEW_COUNT} Verified Reviews
+              {REVIEW_COUNT} Verified Reviews · {RATING} / 5 Stars
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-4">
-              What Our Customers
+              Customer Reviews for
               <br />
-              <span className="text-blue-400">Are Saying</span>
+              <span className="text-blue-400">{BUSINESS_NAME}</span>
             </h1>
-            <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-8">
-              Don't just take our word for it. Hear directly from homeowners throughout Grand Junction and Mesa County about their experience with {BUSINESS_NAME}.
+            <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-4">
+              Real testimonials from homeowners across Grand Junction and Mesa County. Read uncensored feedback on our plumbing repairs, water heaters, and drain cleaning.
             </p>
+            <div className="mb-8">
+              <a
+                href="https://maps.app.goo.gl/JxqJnsmtYmRJhgz97"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-blue-300 hover:text-white underline underline-offset-4 transition-colors"
+              >
+                <span>View original verified reviews on Google Maps profile ↗</span>
+              </a>
+            </div>
 
             {/* Rating Summary */}
             <div className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-5">

@@ -32,11 +32,51 @@ export default function ServicePageGJ({ serviceSlug }: Props) {
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: seoData.h1,
-    description: seoData.metaDescription,
-    areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
-    provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
+    '@graph': [
+      {
+        '@type': 'PlumbingService',
+        name: seoData.h1,
+        description: seoData.metaDescription,
+        areaServed: { '@type': 'City', name: 'Grand Junction, CO' },
+        provider: { '@type': 'LocalBusiness', name: BUSINESS_NAME, telephone: PHONE },
+        telephone: PHONE,
+        priceRange: '$$',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://www.gjrepairpros.com/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Service Areas',
+            item: 'https://www.gjrepairpros.com/service-areas',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: seoData.h1,
+            item: `https://www.gjrepairpros.com/${activeSlug}-grand-junction`,
+          },
+        ],
+      },
+      ...(seoData.faqs && seoData.faqs.length > 0 ? [{
+        '@type': 'FAQPage',
+        mainEntity: seoData.faqs.map((faq: { q: string, a: string }) => ({
+          '@type': 'Question',
+          name: faq.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a.replace(/<[^>]*>/g, '')
+          }
+        }))
+      }] : [])
+    ]
   };
 
   return (

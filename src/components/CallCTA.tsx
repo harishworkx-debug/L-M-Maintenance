@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react';
 import { PHONE, PHONE_DISPLAY } from '@/lib/constants';
+import { trackCallClick } from '@/lib/analytics';
 
 interface CallCTAProps {
   heading?: string;
@@ -19,6 +20,7 @@ export default function CallCTA({
         <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">{subtext}</p>
         <a
           href={`tel:${PHONE}`}
+          onClick={() => trackCallClick('call_cta_banner')}
           className="inline-flex items-center gap-3 bg-white hover:bg-blue-50 text-blue-800 font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all"
         >
           <Phone className="w-6 h-6" />

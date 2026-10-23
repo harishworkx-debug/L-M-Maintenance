@@ -25,8 +25,8 @@ export default function AboutPage() {
   return (
     <>
       <SEO
-        title={`About Us | ${BUSINESS_NAME} - Grand Junction Plumber`}
-        description={`Learn more about ${BUSINESS_NAME}, your trusted local plumbing experts in Grand Junction, CO. Dedicated to quality, honesty, and fast service.`}
+        title={`About ${BUSINESS_NAME} | Trusted Plumber Grand Junction CO`}
+        description={`Learn more about ${BUSINESS_NAME}, your trusted local plumbing team in Grand Junction, CO. Experienced, licensed, insured, and dedicated to Mesa County.`}
         canonical="/about"
         schema={schema}
       />
@@ -37,13 +37,17 @@ export default function AboutPage() {
           <img
             src="https://images.pexels.com/photos/12777517/pexels-photo-12777517.jpeg?auto=compress&cs=tinysrgb&w=1600"
             alt="Grand Junction landscape"
+            width={1600}
+            height={600}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">About {BUSINESS_NAME}</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Your trusted neighbors and local plumbing experts dedicated to keeping Grand Junction's water flowing smoothly.
+            Your trusted local plumbing contractor dedicated to keeping Grand Junction and Mesa County water flowing smoothly with honesty and craftsmanship.
           </p>
         </div>
       </section>
@@ -71,6 +75,10 @@ export default function AboutPage() {
               <img
                 src="https://images.pexels.com/photos/4981803/pexels-photo-4981803.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
                 alt="Plumbing professional working"
+                width={940}
+                height={650}
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl shadow-xl w-full object-cover h-[500px]"
               />
               <div className="absolute -bottom-6 -left-6 bg-blue-50 border border-blue-100 rounded-2xl p-6 shadow-lg max-w-xs hidden sm:block">

@@ -1,10 +1,12 @@
 import { Phone } from 'lucide-react';
 import { PHONE, PHONE_DISPLAY } from '@/lib/constants';
+import { trackCallClick } from '@/lib/analytics';
 
 export default function StickyCallButton() {
   return (
     <a
       href={`tel:${PHONE}`}
+      onClick={() => trackCallClick('sticky_mobile_bar')}
       className="fixed bottom-0 left-0 right-0 w-full z-50 lg:hidden flex items-center justify-center gap-2 bg-blue-700 active:bg-blue-800 text-white font-bold py-4 shadow-[0_-4px_15px_rgba(0,0,0,0.15)] transition-all"
       aria-label={`Call ${PHONE_DISPLAY}`}
     >

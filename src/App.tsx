@@ -11,6 +11,7 @@ import NotFoundPage from '@/pages/NotFoundPage';
 import AboutPage from '@/pages/AboutPage';
 import LocationPage from '@/pages/LocationPage';
 import ReviewsPage from '@/pages/ReviewsPage';
+import SitemapPage from '@/pages/SitemapPage';
 
 // Grand Junction service pages (Plumbing focused)
 import ServicePageGJ from '@/pages/ServicePageGJ';
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

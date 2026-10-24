@@ -44,7 +44,8 @@ export default function ServicePageLayout({
   sectionImageAlt,
   serviceName = 'Plumbing',
 }: ServicePageLayoutProps) {
-  const related = MAIN_SERVICES.filter((s) => relatedServices.includes(s.slug));
+  const currentSlug = canonical.replace(/^\//, '').replace(/-grand-junction$/, '');
+  const otherServices = MAIN_SERVICES.filter((s) => s.slug !== currentSlug);
 
   return (
     <>
@@ -66,7 +67,7 @@ export default function ServicePageLayout({
           <nav className="flex items-center gap-2 text-blue-300 text-xs mb-3">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
-            <Link to="/service-areas" className="hover:text-white transition-colors">Services</Link>
+            <Link to="/service-areas" className="hover:text-white transition-colors">Service Areas</Link>
             <ChevronRight className="w-3 h-3" />
             <span className="text-white">{h1}</span>
           </nav>
@@ -203,26 +204,59 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* Related Services */}
-      {related.length > 0 && (
-        <section className="py-14 bg-gray-50 border-t border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Residential Services in Grand Junction</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {related.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/${s.slug}-grand-junction`}
-                  className="group bg-white rounded-xl p-4 shadow-sm hover:shadow-md border border-gray-100 hover:border-blue-200 transition-all flex items-center justify-between"
-                >
-                  <span className="font-medium text-gray-800 group-hover:text-blue-700 transition-colors">{s.name}</span>
-                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
-                </Link>
-              ))}
+      {/* All Other Plumbing Services in Grand Junction */}
+      <section className="py-14 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-blue-600 font-semibold text-xs uppercase tracking-wider block mb-1">Full Service Range</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                Other Plumbing Services in Grand Junction &amp; Mesa County
+              </h2>
             </div>
+            <Link
+              to="/service-areas"
+              className="text-blue-700 font-semibold hover:text-blue-800 transition-colors text-sm flex items-center gap-1"
+            >
+              All Coverage Areas <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
-        </section>
-      )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {otherServices.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/${s.slug}-grand-junction`}
+                className="group bg-white rounded-xl p-5 shadow-xs hover:shadow-md border border-gray-100 hover:border-blue-200 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors text-base">
+                      {s.name}
+                    </h3>
+                    <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                    {s.short}
+                  </p>
+                </div>
+                <span className="text-xs text-blue-600 font-semibold group-hover:underline">
+                  View {s.name} in Grand Junction →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              to="/sitemap"
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-blue-700 font-medium text-xs transition-colors"
+            >
+              Looking for a specific service or area? View our complete HTML Sitemap Directory →
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

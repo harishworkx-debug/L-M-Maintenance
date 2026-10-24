@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, CheckCircle, Award, Users, Clock } from 'lucide-react';
+import { Phone, MapPin, CheckCircle, Award, Users, Clock, ChevronRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
-import { PHONE, PHONE_DISPLAY, BUSINESS_NAME } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, MAIN_SERVICES } from '@/lib/constants';
 
 export default function AboutPage() {
   const schema = {
@@ -145,6 +145,45 @@ export default function AboutPage() {
             >
               <MapPin className="w-5 h-5" />
               View Service Areas
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Plumbing Services Grid */}
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-blue-600 font-semibold text-xs uppercase tracking-wider block mb-2">Our Capabilities</span>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Comprehensive Plumbing Services We Deliver</h2>
+            <p className="text-gray-600 text-sm">
+              From minor leak fixes to major emergency replacements, we handle every aspect of Mesa County plumbing.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+            {MAIN_SERVICES.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/${s.slug}-grand-junction`}
+                className="bg-white p-4 rounded-xl border border-gray-100 hover:border-blue-200 shadow-2xs hover:shadow-sm transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 text-sm mb-1.5 transition-colors">
+                    {s.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 line-clamp-2">
+                    {s.short}
+                  </p>
+                </div>
+                <span className="text-xs text-blue-600 font-semibold mt-3 group-hover:underline flex items-center gap-1">
+                  Learn more <ChevronRight className="w-3 h-3" />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link to="/sitemap" className="text-xs text-gray-500 hover:text-blue-700 font-medium">
+              Browse our complete HTML website directory &rarr;
             </Link>
           </div>
         </div>

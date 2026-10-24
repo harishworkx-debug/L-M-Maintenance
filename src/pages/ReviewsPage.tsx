@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react';
-import { Star, MessageSquare, ChevronDown, ChevronUp, Search, Filter, User, Award, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Star, MessageSquare, ChevronDown, ChevronUp, Search, Filter, User, Award, Phone, ChevronRight, MapPin } from 'lucide-react';
 import SEO from '@/components/SEO';
 import CallCTA from '@/components/CallCTA';
-import { BUSINESS_NAME, PHONE, PHONE_DISPLAY, RATING, REVIEW_COUNT } from '@/lib/constants';
+import { BUSINESS_NAME, PHONE, PHONE_DISPLAY, RATING, REVIEW_COUNT, MAIN_SERVICES, SERVICE_AREAS } from '@/lib/constants';
 import { ALL_REVIEWS, REVIEW_TAGS, type Review } from '@/lib/reviews-data';
 
 function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg' }) {
@@ -440,6 +441,68 @@ export default function ReviewsPage() {
                   Call Us — {PHONE_DISPLAY}
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Reviewed Services & Communities */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-blue-600 font-semibold text-xs uppercase tracking-wider block mb-2">Service Quality</span>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Explore Our Top-Rated Plumbing Services</h2>
+            <p className="text-gray-600 text-sm">
+              Read how our licensed technicians solve complex pipe, drain, and water heater issues across Grand Junction and Mesa County.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+            {MAIN_SERVICES.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/${s.slug}-grand-junction`}
+                className="bg-gray-50 hover:bg-blue-50/70 p-4 rounded-xl border border-gray-100 hover:border-blue-200 transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="font-bold text-gray-900 group-hover:text-blue-700 text-sm mb-1 transition-colors">
+                    {s.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 line-clamp-2">
+                    {s.short}
+                  </p>
+                </div>
+                <span className="text-xs text-blue-600 font-semibold mt-3 group-hover:underline flex items-center gap-1">
+                  View Service →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Communities */}
+          <div className="bg-blue-50/50 rounded-2xl p-6 sm:p-8 border border-blue-100 text-center">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">Serving Mesa County Communities</h3>
+            <p className="text-gray-600 text-sm mb-6 max-w-2xl mx-auto">
+              Our 4.8-star reviews come from homeowners across all 8 Grand Valley zones:
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              <Link to="/plumbing-repair-grand-junction" className="bg-white hover:bg-blue-600 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-700 border border-gray-200 transition-colors shadow-2xs">
+                Grand Junction, CO
+              </Link>
+              {SERVICE_AREAS.filter(a => !a.main).map(area => (
+                <Link
+                  key={area.slug}
+                  to={`/plumber-${area.slug}`}
+                  className="bg-white hover:bg-blue-600 hover:text-white px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-700 border border-gray-200 transition-colors shadow-2xs"
+                >
+                  Plumber in {area.name}, CO
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6">
+              <Link to="/sitemap" className="text-xs text-blue-700 font-semibold hover:underline">
+                View All Pages in our HTML Sitemap &rarr;
+              </Link>
             </div>
           </div>
         </div>

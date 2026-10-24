@@ -106,23 +106,48 @@ export default function ServicePageGJ({ serviceSlug }: Props) {
       />
 
       {/* Internal Linking to Location Pages */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Providing {service.name} Across Mesa County</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            In addition to Grand Junction, our expert plumbers are ready to assist you in the following nearby communities:
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-blue-600 font-semibold text-xs uppercase tracking-wider block mb-2">Regional Coverage</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              Providing {service.name} Throughout Mesa County
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              We dispatch fully equipped plumbing trucks from Grand Junction to all surrounding communities. Select your neighborhood below for local service details:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {SERVICE_AREAS.filter(a => !a.main).map(area => (
               <Link
                 key={area.slug}
                 to={`/plumber-${area.slug}`}
-                className="inline-flex items-center gap-2 bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-700 font-medium px-4 py-2 rounded-full border border-gray-200 hover:border-blue-200 transition-colors text-sm"
+                className="group bg-gray-50 hover:bg-blue-50/70 p-4 rounded-xl border border-gray-200 hover:border-blue-300 transition-all flex flex-col justify-between"
               >
-                <MapPin className="w-4 h-4 text-blue-500" />
-                {area.name}
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5 text-blue-700">
+                    <MapPin className="w-4 h-4" />
+                    <span className="font-bold text-gray-900 group-hover:text-blue-700 text-sm">
+                      {area.name}, CO
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-3">
+                    Fast {service.name.toLowerCase()} &amp; emergency dispatch in {area.name}.
+                  </p>
+                </div>
+                <span className="text-xs font-semibold text-blue-600 group-hover:text-blue-700">
+                  Plumber in {area.name} →
+                </span>
               </Link>
             ))}
+          </div>
+
+          <div className="text-center flex flex-wrap justify-center items-center gap-4 text-xs text-gray-600">
+            <span>Need service in another Grand Valley location?</span>
+            <Link to="/service-areas" className="text-blue-700 font-semibold hover:underline">
+              View All Service Areas Directory →
+            </Link>
           </div>
         </div>
       </section>

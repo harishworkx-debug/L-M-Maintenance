@@ -187,6 +187,45 @@ const ROUTES = [
     }
   },
 
+  // HTML Sitemap Route
+  {
+    path: '/sitemap',
+    title: 'HTML Sitemap | All Pages & Services | L&M Maintenance and Repair',
+    description: 'Complete directory of all residential plumbing services, Mesa County service areas, and customer resources for L&M Maintenance and Repair.',
+    canonical: '/sitemap',
+    h1: 'Website Sitemap & Directory',
+    bodyHtml: `
+      <p>Quickly navigate every page, service, and local service area covered by ${BUSINESS_NAME} across Grand Junction and Mesa County, Colorado.</p>
+      
+      <h2>Main Pages</h2>
+      <ul>
+        <li><a href="/">Home Page</a> — Grand Junction Plumber overview</li>
+        <li><a href="/about">About Us</a> — Company story, values, and credentials</li>
+        <li><a href="/service-areas">Service Areas Hub</a> — Full Mesa County coverage map</li>
+        <li><a href="/reviews">Customer Reviews</a> — 4.8★ Google verified testimonials</li>
+        <li><a href="/contact">Contact Us</a> — Phone number, direct form, and emergency dispatch</li>
+      </ul>
+
+      <h2>Grand Junction Plumbing Services</h2>
+      <ul>
+        ${MAIN_SERVICES_LIST.map(s => `<li><a href="/${s.slug}-grand-junction">${s.name} in Grand Junction, CO</a></li>`).join('')}
+      </ul>
+
+      <h2>Mesa County Communities & Location Pages</h2>
+      <ul>
+        <li><a href="/plumbing-repair-grand-junction">Grand Junction, CO (Central Dispatch Hub)</a></li>
+        ${SERVICE_AREAS_LIST.filter(a => a.url !== '/').map(a => `<li><a href="${a.url}">Plumber in ${a.name}, CO</a></li>`).join('')}
+      </ul>
+    `,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: `HTML Sitemap | ${BUSINESS_NAME}`,
+      description: 'Complete website directory of all plumbing services and Mesa County service areas.',
+      url: `${DOMAIN}/sitemap`
+    }
+  },
+
   // 6. Plumbing Repair Grand Junction
   {
     path: '/plumbing-repair-grand-junction',
@@ -780,6 +819,7 @@ function generateRouteHtml(route, baseHtml) {
             <a href="/about" style="color: #cbd5e1; text-decoration: none;">About</a>
             <a href="/reviews" style="color: #cbd5e1; text-decoration: none;">Reviews</a>
             <a href="/contact" style="color: #cbd5e1; text-decoration: none;">Contact</a>
+            <a href="/sitemap" style="color: #60a5fa; text-decoration: none; font-weight: 600;">Sitemap</a>
           </nav>
           <a href="tel:${PHONE}" style="background-color: #2563eb; color: #fff; padding: 8px 16px; border-radius: 8px; font-weight: 700; text-decoration: none;">Call ${PHONE_DISPLAY}</a>
         </div>
@@ -840,6 +880,7 @@ function generateRouteHtml(route, baseHtml) {
           <p style="color: #fff; font-weight: 700; font-size: 16px; margin: 0;">${BUSINESS_NAME}</p>
           <p style="margin: 0;">Serving Grand Junction, Fruita, Palisade, Clifton, Orchard Mesa, Loma, Mack, and Whitewater, Colorado.</p>
           <p style="margin: 0;">Direct Phone: <a href="tel:${PHONE}" style="color: #60a5fa;">${PHONE_DISPLAY}</a></p>
+          <p style="margin: 0;"><a href="/sitemap" style="color: #60a5fa; text-decoration: underline;">HTML Sitemap</a> | <a href="/service-areas" style="color: #60a5fa; text-decoration: underline;">Service Areas</a> | <a href="/contact" style="color: #60a5fa; text-decoration: underline;">Contact</a></p>
           <p style="margin: 0;">&copy; ${new Date().getFullYear()} ${BUSINESS_NAME}. All rights reserved.</p>
         </div>
       </footer>

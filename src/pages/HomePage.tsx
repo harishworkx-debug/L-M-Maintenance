@@ -331,12 +331,19 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-center flex flex-wrap justify-center items-center gap-6">
             <Link
               to="/service-areas"
               className="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-800 transition-colors"
             >
               View All Service Areas <ArrowRight className="w-4 h-4" />
+            </Link>
+            <span className="text-gray-300 hidden sm:inline">|</span>
+            <Link
+              to="/sitemap"
+              className="inline-flex items-center gap-2 text-gray-600 font-medium hover:text-blue-700 transition-colors text-sm"
+            >
+              Browse Complete HTML Sitemap Directory →
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, Clock, ChevronRight, CheckCircle, Send, ShieldAlert } from 'lucide-react';
 import SEO from '@/components/SEO';
-import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, SERVICE_AREAS } from '@/lib/constants';
+import { PHONE, PHONE_DISPLAY, BUSINESS_NAME, SERVICE_AREAS, MAIN_SERVICES } from '@/lib/constants';
 
 const schema = {
   '@context': 'https://schema.org',
@@ -339,6 +339,33 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm leading-relaxed">
                 We perform the repair using durable professional materials, test the fix under full operating pressure, leave your home spotless, and back our work with a guarantee.
               </p>
+            </div>
+          </div>
+
+          {/* Quick Directory Links */}
+          <div className="mt-16 bg-gray-50 border border-gray-100 rounded-2xl p-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Need Details on a Specific Plumbing Issue or Area?</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+              {MAIN_SERVICES.map(s => (
+                <Link
+                  key={s.slug}
+                  to={`/${s.slug}-grand-junction`}
+                  className="text-xs text-gray-700 hover:text-blue-700 font-medium py-1.5 px-2 rounded-lg bg-white border border-gray-100 hover:border-blue-200 transition-colors block text-center"
+                >
+                  {s.name}
+                </Link>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-3 text-xs text-gray-600 border-t border-gray-200 pt-4">
+              <span>Service Coverage:</span>
+              <Link to="/plumbing-repair-grand-junction" className="text-blue-700 hover:underline font-semibold">Grand Junction</Link>
+              {SERVICE_AREAS.filter(a => !a.main).map(area => (
+                <Link key={area.slug} to={`/plumber-${area.slug}`} className="text-blue-700 hover:underline">
+                  {area.name}
+                </Link>
+              ))}
+              <span className="text-gray-300">|</span>
+              <Link to="/sitemap" className="text-blue-700 font-bold hover:underline">HTML Sitemap</Link>
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ export default function LocationPage({
     ]
   };
 
-  const nearby = SERVICE_AREAS.filter((a) => a.slug !== slug && !a.main).slice(0, 4);
+  const nearby = SERVICE_AREAS.filter((a) => a.slug !== slug && !a.main);
 
   return (
     <>
@@ -121,19 +121,31 @@ export default function LocationPage({
                 dangerouslySetInnerHTML={{ __html: seoData.body }}
               />
 
-              <h2 className="text-xl font-bold text-gray-900 pt-6 border-t border-gray-100">
-                Our Plumbing Services in {city}
+              <h2 className="text-xl font-bold text-gray-900 pt-6 border-t border-gray-100 mb-2">
+                Plumbing &amp; Drain Services Available in {city}, CO
               </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <p className="text-gray-600 text-sm mb-4">
+                Our technicians provide comprehensive residential and emergency plumbing services throughout {city}. Click below for detailed service breakdowns:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {MAIN_SERVICES.map((s) => (
-                  <li key={s.slug} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <Link to={`/${s.slug}-grand-junction`} className="text-gray-700 text-sm hover:text-blue-700 hover:underline">
-                      {s.name}
-                    </Link>
-                  </li>
+                  <Link
+                    key={s.slug}
+                    to={`/${s.slug}-grand-junction`}
+                    className="p-3 rounded-xl border border-gray-100 hover:border-blue-200 bg-gray-50/60 hover:bg-blue-50/50 transition-all group flex items-start gap-2.5"
+                  >
+                    <CheckCircle className="w-4 h-4 text-blue-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-semibold text-gray-800 group-hover:text-blue-700 block transition-colors">
+                        {s.name}
+                      </span>
+                      <span className="text-xs text-gray-500 line-clamp-1">
+                        {s.short}
+                      </span>
+                    </div>
+                  </Link>
                 ))}
-              </ul>
+              </div>
 
               <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-2">
@@ -159,13 +171,13 @@ export default function LocationPage({
                 <p className="text-center text-blue-200 font-semibold text-lg">{PHONE_DISPLAY}</p>
 
                 <div className="mt-6 pt-6 border-t border-blue-600">
-                  <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-3">Our Services</p>
+                  <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-3">All Plumbing Services</p>
                   <div className="space-y-1">
-                    {MAIN_SERVICES.slice(0, 5).map((s) => (
+                    {MAIN_SERVICES.map((s) => (
                       <Link
                         key={s.slug}
                         to={`/${s.slug}-grand-junction`}
-                        className="block text-sm text-blue-200 hover:text-white transition-colors py-0.5"
+                        className="block text-xs text-blue-200 hover:text-white transition-colors py-1 hover:translate-x-1 duration-150"
                       >
                         → {s.name}
                       </Link>
@@ -229,6 +241,17 @@ export default function LocationPage({
                 <p className="text-xs text-gray-500">Mesa County, CO</p>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-8 text-center flex flex-wrap justify-center items-center gap-3 text-xs text-gray-600">
+            <span>View complete Mesa County plumbing coverage details:</span>
+            <Link to="/service-areas" className="text-blue-700 font-semibold hover:underline">
+              All Service Areas →
+            </Link>
+            <span className="text-gray-300">|</span>
+            <Link to="/sitemap" className="text-blue-700 font-semibold hover:underline">
+              HTML Sitemap Directory →
+            </Link>
           </div>
         </div>
       </section>
